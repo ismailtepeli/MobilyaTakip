@@ -1,0 +1,78 @@
+﻿body {
+    background-color:#f3f6f8;
+}
+aside{
+    max-width:400px;
+    float:left;
+    min-height:100%;
+    background-color:#fff;
+     
+}
+.Logo {
+    min-width:100%;
+    float:left;
+    text-align:center;
+    min-height:200px;
+ 
+
+}
+    .Logo h3 {
+            line-height:200px;
+            text-transform:uppercase;
+    }
+.LoginForm {
+    min-width:100%;
+    float:left;
+ 
+    min-height:400px;
+}
+    .LoginForm i {
+        float:right;
+        margin-right:10px;
+        margin-top:-27px;
+        display:block;
+    }
+.SocialMedia {
+    min-width:100%;
+    min-height:185px;
+    float:left;
+  
+    text-align:center;
+}
+    .SocialMedia ul li {
+        margin:0 auto;       margin-top:10px;
+        
+        float:left;
+        list-style-type:none;
+        padding-left:30px;
+    }
+    .SocialMedia p {
+        color:#98a6ad !important;
+    }
+.BussinesLogo {
+    min-width:100%;
+    min-height:50px;
+    float:left;
+}
+section {min-width:70%;float:left;border:1px solid red;min-height:100%;}
+.NewsArea{min-width:500px; background-color:#fff;float:left;min-height:790px;margin-left:20px;}
+.NewsTitle {
+    min-width:100%;
+    float:left;
+   border-bottom:1px solid #ddd;
+    min-height:80px;
+    line-height:70px;
+    padding-left:10px;
+    text-transform:uppercase;
+    color:#3f3f3f;
+}
+.NewsContent {
+    min-width:100%;
+    float:left;
+   
+    max-height:680px;
+    overflow-y:scroll;
+}
+    .NewsContent .media {
+        margin-top:10px;
+    }
