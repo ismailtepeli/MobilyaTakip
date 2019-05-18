@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "AddMdl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="breadcomb-list">
+            <div class="normal-table-list">
+                <h3>Model Ekle</h3>
+            </div>
+            <table class="table table-condensed table-borderless">
+                <tr>
+                    <td>Ürün </td>
+                    <td>
+                        <select class="form-control" id="Products">
+                            <option value="0" disabled selected>Ürün Seç</option>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Model Adı</td>
+                    <td><input type="text" class="form-control" placeholder="Model Adı Giriniz" id="ModelName" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="btn btn-success pull-right">Kaydet</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        DropdownPropductListForModelsPage();
+    })
+</script>
+

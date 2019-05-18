@@ -13,15 +13,20 @@
             <table class="table table-condensed table-borderless">
                 <tr>
                     <td>Ürün Adı</td>
-                    <td><input type="text" class="form-control" placeholder="Ürün Adı Giriniz" /></td>
+                    <td><input type="text" class="form-control" placeholder="Ürün Adı Giriniz" id="ProductName" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button class="btn btn-success pull-right">Kaydet</button></td>
+                    <td colspan="2"><button class="btn btn-success pull-right" onclick="CreateProduct()">Kaydet</button></td>
                 </tr>
             </table>
         </div>
 
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        CreateProduct();
+    })
+</script>
 
 

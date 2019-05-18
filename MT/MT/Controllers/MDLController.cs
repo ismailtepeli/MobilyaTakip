@@ -6,13 +6,16 @@ using System.Web.Mvc;
 
 namespace MT.Controllers
 {
-    public class HomeController : Controller
+    public class MDLController : Controller
     {
+        // GET: MDL
         public ActionResult Index()
         {
             return View();
         }
-
-         
+        public ActionResult AddMdl()
+        {
+            return View();
+        }
     }
 }

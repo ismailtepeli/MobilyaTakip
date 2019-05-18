@@ -6,13 +6,16 @@ using System.Web.Mvc;
 
 namespace MT.Controllers
 {
-    public class HomeController : Controller
+    public class CatalogController : Controller
     {
+        // GET: Catalog
         public ActionResult Index()
         {
             return View();
         }
-
-         
+        public ActionResult AddCatalog()
+        {
+            return View();
+        }
     }
 }
