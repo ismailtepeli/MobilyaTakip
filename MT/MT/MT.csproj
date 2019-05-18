@@ -177,7 +177,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MDLModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\Types\ModelProduct.cs" />
     <Compile Include="Models\Types\MTS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

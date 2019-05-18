@@ -40,5 +40,10 @@ namespace MT.Controllers
             var result = ProductModel.Update(product);
             return JsonConvert.SerializeObject(result);
         }
+        public string Delete(int Id)
+        {
+            var result = ProductModel.Delete(Id);
+            return JsonConvert.SerializeObject(result);
+        }
     }
 }

@@ -11,11 +11,13 @@ namespace MT.Models.Types
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class tblModel
     {
         public int Id { get; set; }
         public Nullable<int> ProductId { get; set; }
         public string ModelName { get; set; }
+      
     }
 }
