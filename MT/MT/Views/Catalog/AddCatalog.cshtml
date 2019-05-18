@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "AddCatalog";
+    ViewBag.Title = "Kartela";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,12 +14,12 @@
                 <tr>
                     <td>Kartela Adı</td>
                     <td>
-                        <input type="text" class="form-control" placeholder="Kartela Adı Giriniz" />
+                        <input type="text" class="form-control" placeholder="Kartela Adı Giriniz" id="KartelaName"/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button class="btn pull-right btn-success">Kaydet</button>
+                        <button class="btn pull-right btn-success" onclick="CreateKartela();">Kaydet</button>
                     </td>
                 </tr>
             </table>

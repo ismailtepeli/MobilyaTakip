@@ -27,5 +27,6 @@ namespace MT.Models.Types
     
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<tblModel> tblModels { get; set; }
+        public virtual DbSet<Kartela> Kartelas { get; set; }
     }
 }

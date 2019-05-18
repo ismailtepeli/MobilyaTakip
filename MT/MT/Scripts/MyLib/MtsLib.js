@@ -228,3 +228,85 @@ function DeleteModel(Id) {
         })
     }
 }
+
+function CreateKartela() {
+    var KartelaName = $("#KartelaName").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/Catalog/Add',
+        data: { KartelaName: KartelaName },
+        success: function (data) {
+            alert("Kartela Oluşturuldu");
+            location.reload();
+        },
+        error: function (xhr) {
+            alert("işlem başarısız");
+        }
+    })
+}
+function KartelaList() {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Catalog/List',
+        success: function (data) {
+            $.each(data, function () {
+                $("#KartelaTable").append(
+                    "<tr>"
+                    + "<td>" + this.KartelaName + "</td>"
+                    + "<td>  <button class='btn btn-success'  data-toggle='modal' data-target='#Edit' onclick='EditKartela(" + this.Id + ")'>Düzenle</button> <button class='btn btn-danger' onclick='DeleteKartela(" + this.Id + ")'>Sil</button></td>"
+                    + "</tr>"
+                    )
+            })
+            DoPagination("KartelaTable");
+        }
+    })
+}
+function EditKartela(Id) {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Catalog/Edit',
+        data: { Id: Id },
+        success: function (data) {
+            $.each(data, function () {
+                document.getElementById("Id").value = this.Id;
+                document.getElementById("kartela").value = this.KartelaName;
+            })
+        }
+    })
+}
+function UpdateKartela() {
+    var kartela = $("#kartela").val();
+    var Id = $("#Id").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/Catalog/Update',
+        data: { KartelaName: kartela, Id: Id },
+        success: function (data) {
+            alert("Güncelleme işlemi gerçekleştirildi"); location.reload();
+        },
+        error: function (xhr) {
+            alert("işlem başarısız");
+        }
+    })
+}
+function DeleteKartela(Id) {
+    if (confirm("Silmek istediğine eminmisin ?")) {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/Catalog/Delete',
+            data: { Id: Id },
+            success: function (data) {
+                alert("Silme işlemi gerçekleştirildi");
+                location.reload();
+            },
+            error: function (xhr) {
+                alert("Silme işlemi gerçekleşmedi");
+            }
+        })
+    }
+}

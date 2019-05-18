@@ -12,10 +12,9 @@ namespace MT.Models.Types
     using System;
     using System.Collections.Generic;
     
-    public partial class tblModel
+    public partial class Kartela
     {
         public int Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public string ModelName { get; set; }
+        public string KartelaName { get; set; }
     }
 }
