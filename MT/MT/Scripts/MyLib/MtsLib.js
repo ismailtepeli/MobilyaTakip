@@ -310,3 +310,24 @@ function DeleteKartela(Id) {
         })
     }
 }
+
+function GetUsers()
+{
+    $.ajax({
+        type:'get',
+        dataType:'json',
+        url:'/User/GetUser',
+        success:function(data){
+            $.each(data,function(){
+                $("#UserTable").append(
+                    "<tr>"
+                        +"<td>"+this.UserName+"</td>"
+                        +"<td><button type='button'>Sil</button><button type='button'>Düzenle</button></td>"
+                    +"</tr>"
+                )
+            })
+        }
+    })
+}
+
+
