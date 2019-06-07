@@ -311,6 +311,7 @@ function DeleteKartela(Id) {
     }
 }
 
+<<<<<<< HEAD
 
 function KartelaForDropdownList() {
 
@@ -366,10 +367,28 @@ function KartelaProductList() {
                     )
             })
             DoPagination("KartelaProduct");
+=======
+function GetUsers()
+{
+    $.ajax({
+        type:'get',
+        dataType:'json',
+        url:'/User/GetUser',
+        success:function(data){
+            $.each(data,function(){
+                $("#UserTable").append(
+                    "<tr>"
+                        +"<td>"+this.UserName+"</td>"
+                        +"<td><button type='button'>Sil</button><button type='button'>Düzenle</button></td>"
+                    +"</tr>"
+                )
+            })
+>>>>>>> c6c5f9357d962da62da108330e0cdcc886e20d27
         }
     })
 }
 
+<<<<<<< HEAD
 function EditKartelaProduct(Id) {
     $.ajax({
         type: 'get',
@@ -390,3 +409,6 @@ function UpdateKartelaProduct() {
     var KartelaId = $("#Kartela").val();
     var ProductName=$()
 }
+=======
+
+>>>>>>> c6c5f9357d962da62da108330e0cdcc886e20d27
