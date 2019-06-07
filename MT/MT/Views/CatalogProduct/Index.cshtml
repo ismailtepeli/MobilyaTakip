@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="data-table-list">
+                <div class="normal-table-list">
+                    <h3>Kartela Ürün   Listesi</h3>
+                </div>
+                <div class="table-responsive">
+                    <table id="KartelaProduct" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Kartela Adı</th>
+                                <th>Ürün Adı</th>
+                                <th>Ürün Kodu</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                      
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kartela Ürünü Düzenle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>
+                            <select class="form-control" id="Kartela">
+                                <option value="0" selected disabled>Kartela Seçiniz</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="ProductName" placeholder="Ürün Adı Giriniz" required />
+                            <input type="hidden" id="Id" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="ProductCode" placeholder="Ürün Kodunu giriniz" required />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                <button type="submit" class="btn btn-primary" onclick="">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    KartelaProductList();
+    KartelaForDropdownList();
+</script>

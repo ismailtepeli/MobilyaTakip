@@ -310,3 +310,83 @@ function DeleteKartela(Id) {
         })
     }
 }
+
+
+function KartelaForDropdownList() {
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Catalog/List',
+        success: function (data) {
+            $.each(data, function () {
+                $("#Kartela").append(
+                        "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
+                    )
+            })
+
+        }
+    })
+}
+
+function AddKartelaProduct() {
+    var KartelaId = $("#Kartela").val();
+    var ProductName = $("#ProductName").val();
+    var ProductCode = $("#ProductCode").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/CatalogProduct/Add',
+        data: { KartelaId: KartelaId, ProductCode: ProductCode, ProductName: ProductName },
+        success: function (data) {
+            alert("Kayıt işlemi başarılı");
+        },
+        error: function (xhr) {
+            alert("işlem başarısız");
+        }
+    })
+}
+
+function KartelaProductList() {
+    var elemenet = document.getElementById("KartelaProduct");
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/CatalogProduct/List',
+        success: function (data) {
+            $.each(data, function () {
+                $("#KartelaProduct").append(
+                    "<tr>"
+                    + "<td>" + this.KartelaName + "</td>"
+                    + "<td>" + this.ProductName + "</td>"
+                    + "<td>" + this.ProductCode + "</td>"
+                    + "<td>  <button class='btn btn-success' data-toggle='modal' data-target='#Edit' onclick='EditKartelaProduct(" + this.Id + ")'>Düzenle</button> <button class='btn btn-danger' onclick='DeleteKartelaProduct(" + this.Id + ")'>Sil</button></td>"
+                    + "</tr>"
+                    )
+            })
+            DoPagination("KartelaProduct");
+        }
+    })
+}
+
+function EditKartelaProduct(Id) {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/CatalogProduct/Edit',
+        data: { Id: Id },
+        success: function (data) {
+            $.each(data, function () {
+                document.getElementById("Kartela").value = this.KartelaId;
+                document.getElementById("ProductName").value = this.ProductName;
+                document.getElementById("ProductCode").value = this.ProductCode;
+                document.getElementById("Id").value = this.Id;
+            })
+        }
+    })
+}
+function UpdateKartelaProduct() {
+    var KartelaId = $("#Kartela").val();
+    var ProductName=$()
+}

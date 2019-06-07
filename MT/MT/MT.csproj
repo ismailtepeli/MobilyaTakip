@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
+    <Compile Include="Controllers\CatalogProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MDLController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -178,9 +179,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\KartelaModel.cs" />
+    <Compile Include="Models\KartelaProductModel.cs" />
     <Compile Include="Models\MDLModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\Types\CatalogProduct.cs" />
     <Compile Include="Models\Types\Kartela.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Types\KartelaProduct.cs">
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Types\ModelProduct.cs" />
@@ -498,6 +504,8 @@
     <Content Include="Views\Catalog\AddCatalog.cshtml" />
     <Content Include="Views\MDL\Index.cshtml" />
     <Content Include="Views\MDL\AddMdl.cshtml" />
+    <Content Include="Views\CatalogProduct\Index.cshtml" />
+    <Content Include="Views\CatalogProduct\CatalogProductAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

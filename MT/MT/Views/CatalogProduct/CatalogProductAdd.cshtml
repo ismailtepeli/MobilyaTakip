@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "CatalogProductAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="breadcomb-list">
+            <div class="normal-table-list">
+                <h3>Kartela ya Ürün Ekle Ekle</h3>
+            </div>
+            <table class="table table-condensed table-borderless">
+                <tr>
+                    <td>Kartela Adı</td>
+                    <td>
+                        <select class="form-control" id="Kartela">
+                            <option value="0" selected disabled>Kartela Adını Giriniz</option>
+                            
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ürün Adı</td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="Ürün Adı Giriniz" id="ProductName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ürün Kodu</td>
+                    <td><input type="text" class="form-control" placeholder="Ürün Kodu Giriniz" id="ProductCode" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn pull-right btn-success" onclick="AddKartelaProduct();">Kaydet</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    KartelaForDropdownList();
+</script>
+
