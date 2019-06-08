@@ -9,40 +9,40 @@ using Newtonsoft.Json;
 
 namespace MT.Controllers
 {
-    public class CatalogProductController : Controller
+    public class UserController : Controller
     {
-        // GET: CatalogProduct
+        // GET: User
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult CatalogProductAdd()
+        public ActionResult AddUsers()
         {
             return View();
         }
-        public string Add(KartelaProduct model)
+        public string AddUser(User user)
         {
-            var result = KartelaProductModel.Add(model);
+            var result = UserModel.Add(user);
             return JsonConvert.SerializeObject(result);
         }
-        public string List()
+        public string UserList()
         {
-            var result = KartelaProductModel.List();
+            var result = UserModel.GetUser();
             return JsonConvert.SerializeObject(result);
         }
-        public string Edit(int Id)
+        public string EditUser(int Id)
         {
-            var result = KartelaProductModel.Edit(Id);
+            var result = UserModel.Edit(Id);
             return JsonConvert.SerializeObject(result);
         }
-        public string Update(KartelaProduct model)
+        public string UpdateUser(User user)
         {
-            var result = KartelaProductModel.Update(model);
+            var result = UserModel.Update(user);
             return JsonConvert.SerializeObject(result);
         }
-        public string Delete(int Id)
+        public string DeleteUser(int Id)
         {
-            var result = KartelaProductModel.Delete(Id);
+            var result = UserModel.Delete(Id);
             return JsonConvert.SerializeObject(result);
         }
     }

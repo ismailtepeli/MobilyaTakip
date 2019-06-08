@@ -36,11 +36,21 @@
           <Property Name="ProductId" Type="int" />
           <Property Name="ModelName" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSurname" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Password" Type="varchar(max)" />
+        </EntityType>
         <EntityContainer Name="MTSModelStoreContainer">
           <EntitySet Name="Kartela" EntityType="Self.Kartela" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KartelaProduct" EntityType="Self.KartelaProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblModel" EntityType="Self.tblModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -58,6 +68,7 @@
           <EntitySet Name="tblModels" EntityType="MTSModel.tblModel" />
           <EntitySet Name="Kartelas" EntityType="MTSModel.Kartela" />
           <EntitySet Name="KartelaProducts" EntityType="MTSModel.KartelaProduct" />
+          <EntitySet Name="Users" EntityType="MTSModel.User" />
         </EntityContainer>
         <EntityType Name="tblModel">
           <Key>
@@ -82,6 +93,15 @@
           <Property Name="KartelaId" Type="Int32" />
           <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NameSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -120,6 +140,16 @@
                 <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="KartelaId" ColumnName="KartelaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MTSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

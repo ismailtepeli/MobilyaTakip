@@ -311,7 +311,7 @@ function DeleteKartela(Id) {
     }
 }
 
-<<<<<<< HEAD
+
 
 function KartelaForDropdownList() {
 
@@ -350,7 +350,6 @@ function AddKartelaProduct() {
 
 function KartelaProductList() {
     var elemenet = document.getElementById("KartelaProduct");
-
     $.ajax({
         type: 'get',
         dataType: 'json',
@@ -367,28 +366,11 @@ function KartelaProductList() {
                     )
             })
             DoPagination("KartelaProduct");
-=======
-function GetUsers()
-{
-    $.ajax({
-        type:'get',
-        dataType:'json',
-        url:'/User/GetUser',
-        success:function(data){
-            $.each(data,function(){
-                $("#UserTable").append(
-                    "<tr>"
-                        +"<td>"+this.UserName+"</td>"
-                        +"<td><button type='button'>Sil</button><button type='button'>Düzenle</button></td>"
-                    +"</tr>"
-                )
-            })
->>>>>>> c6c5f9357d962da62da108330e0cdcc886e20d27
         }
     })
 }
 
-<<<<<<< HEAD
+
 function EditKartelaProduct(Id) {
     $.ajax({
         type: 'get',
@@ -407,8 +389,135 @@ function EditKartelaProduct(Id) {
 }
 function UpdateKartelaProduct() {
     var KartelaId = $("#Kartela").val();
-    var ProductName=$()
-}
-=======
+    var ProductName = $("#ProductName").val();
+    var ProductCode = $("#ProductCode").val();
+    var Id = $("#Id").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/CatalogProduct/Update',
+        data: { Id: Id, KartelaId: KartelaId, ProductName: ProductName, ProductCode: ProductCode },
+        success: function (data) {
+            alert("Güncelleme işlemi gerçekleştirildi."); location.reload();
+        },
+        error: function (xhr) {
+            alert("Güncelleme işlemi başarısız");
+        }
 
->>>>>>> c6c5f9357d962da62da108330e0cdcc886e20d27
+    })
+}
+function DeleteKartelaProduct(Id) {
+    if (confirm("Silmek istediğinize eminmisiniz")) {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/CatalogProduct/Delete',
+            data: { Id: Id },
+            success: function (data) {
+                alert("Silme işlemi gerçekleştirildi.")
+                location.reload();
+            },
+            error: function (xhr) {
+                alert("işlem başarısız !! ");
+            }
+        })
+    }
+}
+
+
+function AddUser() {
+    var NameSurname = $("#NameSurname").val();
+    var Email = $("#Email").val();
+    var Password = $("#Password").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/User/AddUser',
+        data: { NameSurname: NameSurname, Email: Email, Password: Password },
+        success: function (data) {
+            alert("Yeni Kullanıcı Oluşturuldu");
+            location.reload();
+        },
+        error: function (xhr) {
+            alert("işlem başarısız !!");
+        }
+    })
+}
+
+
+
+function GetUsers() {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/User/UserList',
+        success: function (data) {
+            $.each(data, function () {
+                $("#UserTable").append(
+                    "<tr>"
+                        + "<td>" + this.NameSurname + "</td>"
+                        + "<td>" + this.Email + "</td>"
+                        + "<td><button type='button' class='btn btn-sm btn-primary' data-toggle='modal' data-target='#Edit' onclick='EditUser(" + this.Id + ")'>Düzenle</button> <button type='button' class='btn btn-sm btn-danger' onclick='DeleteUser(" + this.Id + ")'>Sil</button></td>"
+                    + "</tr>"
+                )
+            })
+            DoPagination("UserTable");
+
+        }
+    })
+}
+
+function EditUser(Id) {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/User/EditUser',
+        data: { Id: Id },
+        success: function (data) {
+            $.each(data, function () {
+                document.getElementById("NameSurname").value = this.NameSurname;
+                document.getElementById("Email").value = this.Email;
+                document.getElementById("Password").value = this.Password;
+                document.getElementById("Id").value = this.Id;
+            })
+        }
+    })
+}
+
+function UpdateUser() {
+    var NameSurname = $("#NameSurname").val();
+    var Email = $("#Email").val();
+    var Password = $("#Password").val();
+    var Id = $("#Id").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/User/UpdateUser',
+        data: { Id: Id, NameSurname: NameSurname, Email: Email, Password: Password },
+        success: function (data) {
+            alert("Güncelleme işlemi gerçekleştirildi."); location.reload();
+        },
+        error: function (xhr) {
+            alert("Güncelleme işlemi başarısız");
+        }
+
+    })
+}
+
+function DeleteUser(Id) {
+    if (confirm("Silmek istediğinize eminmisiniz")) {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/User/DeleteUser',
+            data: { Id: Id },
+            success: function (data) {
+                alert("Silme işlemi gerçekleştirildi.")
+                location.reload();
+            },
+            error: function (xhr) {
+                alert("işlem başarısız !! ");
+            }
+        })
+    }
+}
