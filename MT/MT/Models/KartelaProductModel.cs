@@ -101,5 +101,14 @@ namespace MT.Models
                 return 0;
             }
         }
+
+        public static List<KartelaProduct> KartelaForProduct(int KartelaId)
+        {
+            using (var db=new MTSEntities())
+            {
+                var kartelaForProduct = (from x in db.KartelaProducts where x.KartelaId == KartelaId select x).ToList();
+                return kartelaForProduct;
+            }
+        }
     }
 }

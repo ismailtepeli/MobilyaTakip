@@ -521,3 +521,114 @@ function DeleteUser(Id) {
         })
     }
 }
+
+
+function AddCustomerForOrderPage() {
+    var NameSurname = $("#CustomerNameSurname").val();
+    var Phone1 = $("#Phone1").val();
+    var Phone2 = $("#Phone2").val();
+    var Adress = $("#Adress").val();
+    var Email = $("#Email").val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/Order/AddCustomer',
+        data: { NameSurname: NameSurname, Phone1: Phone1, Phone2: Phone2, Adress: Adress, Email: Email },
+        success: function (data) {
+
+            alert("Yeni Müşteri Oluşturuldu");
+
+            location.reload();
+        },
+        error: function (xhr) {
+            alert("İşlem Başarısız");
+        }
+    })
+
+}
+function GetCustomerForOrderPageSelectList() {
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/CustomerList',
+        success: function (data) {
+            debugger
+            $("#SelectCustomer").html("");
+            $("#SelectCustomer").append("<option value='0' disabled selected> Müşteri Seçiniz</option>");
+            $.each(data, function () {
+                $("#SelectCustomer").append(
+                    "<option value='" + this.Id + "'>" + this.NameSurname + " </option>"
+                    )
+            })
+        }
+    })
+}
+
+
+function ProductListForOrderPageSelectList() {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/ProductList',
+        success: function (data) {
+            $("#Product").append("<option value='0' selected disabled>Ürün Seçiniz</option>");
+            $.each(data, function () {
+                $("#Product").append("<option value='" + this.Id + "'>" + this.ProductName + "</option>");
+            })
+        }
+    })
+}
+
+function GetProductModelForOrderPageSelectList() {
+    var ProductId = $("#Product").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/ProdocutForModel',
+        data: { ProductId: ProductId },
+        success: function (data) {
+            $("#Model").html("");
+            $("#Model").append("<option value='0' selected disabled>Model Seçiniz</option>");
+            $.each(data, function () {
+                $("#Model").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
+            })
+        }
+    })
+}
+
+
+function GetKartelaForOrderPageSelectList() {
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaList',
+        success: function (data) {
+            $.each(data, function () {
+                $("#Kartela").append("<option value='0'  selected disabled> Kartela Seçiniz</option>");
+                $("#Kartela").append(
+                        "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
+                    )
+            })
+
+        }
+    })
+}
+
+function GetKartelaModelForOrderPageSelectList() {
+    var KartelaId = $("#Kartela").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaForProduct',
+        data: { KartelaId: KartelaId },
+        success: function (data) {
+            $("#KartelaProduct").html("");
+            $("#KartelaProduct").append("<option value='0' selected disabled>Kartela Modeli Seçiniz</option>");
+            $.each(data, function () {
+                $("#KartelaProduct").append("<option value='" + this.Id + "'>" + this.ProductName + "</option>");
+            })
+        }
+    })
+}

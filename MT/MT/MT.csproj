@@ -174,16 +174,21 @@
     <Compile Include="Controllers\CatalogProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MDLController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\KartelaModel.cs" />
     <Compile Include="Models\KartelaProductModel.cs" />
     <Compile Include="Models\MDLModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Types\CatalogProduct.cs" />
+    <Compile Include="Models\Types\Customer.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Types\Kartela.cs">
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
@@ -207,6 +212,9 @@
       <DependentUpon>MTS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Types\Product.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Types\sysdiagram.cs">
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Types\tblModel.cs">
@@ -513,6 +521,7 @@
     <Content Include="Views\CatalogProduct\CatalogProductAdd.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddUsers.cshtml" />
+    <Content Include="Views\Order\AddOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,7 +12,7 @@ namespace MT.Models
         {
             try
             {
-                using (var db=new MTSEntities())
+                using (var db = new MTSEntities())
                 {
                     var temp = new tblModel
                     {
@@ -31,35 +31,35 @@ namespace MT.Models
         }
         public static List<ModelProduct> List()
         {
-            using (var db=new MTSEntities())
+            using (var db = new MTSEntities())
             {
                 var models = (from x in db.tblModels
                               join p in db.Products on x.ProductId equals p.Id
                               select new ModelProduct
                               {
-                                   ProductName=p.ProductName,
-                                   Id=x.Id,
-                                   ProductId=p.Id,
-                                   ModelName=x.ModelName
+                                  ProductName = p.ProductName,
+                                  Id = x.Id,
+                                  ProductId = p.Id,
+                                  ModelName = x.ModelName
                               }
                             ).ToList();
                 return models;
-               
+
             }
         }
         public static List<tblModel> Edit(int Id)
         {
-            using (var db=new MTSEntities())
+            using (var db = new MTSEntities())
             {
                 var model = (from x in db.tblModels where x.Id == Id select x).ToList();
                 return model;
             }
         }
-        public static int  Update(tblModel model)
+        public static int Update(tblModel model)
         {
             try
             {
-                using (var db=new MTSEntities())
+                using (var db = new MTSEntities())
                 {
                     tblModel temp = db.tblModels.SingleOrDefault(x => x.Id == model.Id);
                     temp.ModelName = model.ModelName;
@@ -72,7 +72,7 @@ namespace MT.Models
             {
                 return 0;
             }
-        }   
+        }
         public static int Delete(int Id)
         {
             try
@@ -95,6 +95,15 @@ namespace MT.Models
             catch (Exception ex)
             {
                 return 0;
+            }
+        }
+
+        public static List<tblModel> ProductForModel(int ProductId)
+        {
+            using (var db = new MTSEntities())
+            {
+                var productForModel = (from x in db.tblModels where x.ProductId == ProductId select x).ToList();
+                return productForModel;
             }
         }
     }

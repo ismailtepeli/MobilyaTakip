@@ -2975,14 +2975,14 @@ textarea.auto-size {
     z-index: 5;
 }
 .bootstrap-select>.btn-default {
-    border-top: 0px solid #ccc;
+   /* border-top: 0px solid #ccc;
     border-left: 0px solid #ccc;
     border-right: 0px solid #ccc;
     border-bottom: 1px solid #ccc;
     border-radius: 0px;
 	background:none !important;
 	box-shadow: none !important;
-	outline:none !important;
+	outline:none !important;*/
 }
 .bootstrap-select>.btn-default:active, .bootstrap-select>.btn-default:hover, .bootstrap-select>.btn-default:focus {
 	outline:none !important;
@@ -3358,7 +3358,7 @@ textarea.auto-size {
     color: #333;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-	width: 300px;
+	width: 310px;
 }
 .datepicker-days  .table-condensed thead tr{
 	background:#00c292;

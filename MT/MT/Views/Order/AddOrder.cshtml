@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = "AddOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="breadcomb-list">
+            <div class="normal-table-list">
+                <h3>Sipariş Ekle</h3>
+            </div>
+
+            <table class="table table-condensed table-borderless">
+                <tr>
+                    <td>Müşteri Seç</td>
+                    <td>
+                        <div class="col-lg-10">
+                            <select class="form-control selectpicker" style="max-width:640px !important;margin-right:15px;" data-live-search="true" id="SelectCustomer"></select>
+                        </div>
+                        <div class="col-lg-2">
+                            <a href="javascript:void(0);" class="btn  btn-primary " onclick="AddCustomerPanelToggle();">Müşteri Ekle</a>
+                        </div>
+                        <div class="form-group col-12" id="AddCustomerPanel">
+                            <table class="table table-condensed table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">
+                                            Müşteri Oluştur
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>Müşteri Ad Soyad</td>
+                                    <td><input type="text" class="form-control" placeholder="Ad Soyad" id="CustomerNameSurname" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <input type="email" class="form-control" placeholder="Email Giriniz" id="Email" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Müşteri No 1</td>
+                                    <td><input type="text" class="form-control" placeholder="" id="Phone1" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Müşteri No 2</td>
+                                    <td><input type="text" class="form-control" placeholder="" id="Phone2" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Adres</td>
+                                    <td>
+                                        <textarea class="form-control" rows="4" id="Adress"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="submit" class="btn btn-sm btn-success pull-right" onclick="AddCustomerForOrderPage();">Müşteri Oluştur</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sipariş Tarihi</td>
+                    <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy"  id="OrderDate"/></td>
+                </tr>
+                <tr>
+                    <td>Teslim Tarihi</td>
+                    <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy" id="LastOrderDate" /></td>
+                </tr>
+
+                <tr>
+                    <td>Ürün</td>
+                    <td>
+                        <select class="form-control" id="Product" onchange="GetProductModelForOrderPageSelectList()">
+                            
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Model No</td>
+                    <td>
+                        <select class="form-control" id="Model">
+                             
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kartela</td>
+                    <td>
+                        <select class="form-control" id="Kartela" onchange="GetKartelaModelForOrderPageSelectList()">
+                             
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kartela Model</td>
+                    <td>
+                        <select class="form-control" id="KartelaProduct"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cila  </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="Cila" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Açıklama  </td>
+                    <td>
+                        <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ürün Tutarı</td>
+                    <td><input class="form-control" type="text" placeholder="0 TL" id="Price"/> </td>
+                </tr>
+                <tr>
+                    <td>Toplam Fiyat</td>
+                    <td><label id="lblFiyat"></label> TL</td>
+                </tr>
+                <tr>
+                    <td>Kapora</td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="0 TL" id="Kapora" />
+                        Nakit <input type="checkbox" class="form-check" />&nbsp;
+                        Kredi Kartı <input type="checkbox" class="form-check" />&nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kalan Fiyat</td>
+                    <td> <label id="lblKapora"></label> TL</td>
+                </tr>
+                <tr>
+                    <td>Ödeme Tipi</td>
+                    <td>
+                        Nakit <input type="checkbox" class="form-check" />&nbsp;
+                        Kredi Kartı <input type="checkbox" class="form-check" />&nbsp;
+                        Senet <input type="checkbox" class="form-check" />
+                        Çek <input type="checkbox" class="form-check" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-success">Kaydet</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#AddCustomerPanel").hide();
+        GetCustomerForOrderPageSelectList();
+        $("#OrderDate").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker('update', new Date());
+
+        $("#LastOrderDate").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker();
+
+        ProductListForOrderPageSelectList();
+        GetKartelaForOrderPageSelectList();
+        $("#Price").change(function () {
+            $("#lblFiyat").text($("#Price").val());
+        })
+        $("#Kapora").change(function () {
+            var toplam = $("#Price").val();
+            var kap = $("#Kapora").val();
+            $("#lblKapora").text(toplam - kap);
+        })
+    })
+    function AddCustomerPanelToggle() {
+
+        $("#AddCustomerPanel").toggle();
+    }
+</script>
