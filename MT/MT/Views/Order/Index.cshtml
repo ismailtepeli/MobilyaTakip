@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="data-table-list">
+                <div class="normal-table-list">
+                    <h3>Sipariş Listesi</h3>
+                </div>
+                <div class="table-responsive">
+                    <table id="OrderTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>Telefon</th>
+
+                                <th>Başlangıç Tarihi</th>
+                                <th>Bitiş Tarihi</th>
+                                <th>Fiyat</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                         
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-xl" id="PageDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><label id="CustomerName"></label> Adlı Müşterinin Sipariş Detay</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="YazdirArea">
+                <table class="table table-borderless">
+                  <tr>
+                      <td>Sipariş Tarihi</td>
+                      <td><label></label></td>
+                  </tr>
+                    <tr>
+                        <td>Teslim Tarihi</td>
+                        <td><label></label></td>
+                    </tr>
+                    <tr>
+                        <td>Müşteri Ad Soyad</td>
+                        <td><label id="NameSurname"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Tel 1</td>
+                        <td><label id="Phone1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Tel 2</td>
+                        <td><label id="Phone2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Adress</td>
+                        <td><label id="Adress"></label></td>
+                    </tr>
+                    <tr>
+                        <td>1.Ürün</td>
+                        <td> <label id="Urun1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Model 1</td>
+                        <td> <label id="Model1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela 1</td>
+                        <td> <label id="Kartela1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model 1</td>
+                        <td> <label id="KM1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Cila 1</td>
+                        <td> <label id="Cila1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama 1</td>
+                        <td> <label id="Aciklama1"></label></td>
+                    </tr>
+
+                    <tr>
+                        <td>2.Ürün</td>
+                        <td> <label id="Urun2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Model 2</td>
+                        <td> <label id="Model2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela 2</td>
+                        <td> <label id="Kartela2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model 2</td>
+                        <td> <label id="KM2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Cila 2</td>
+                        <td> <label id="Cila2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama 2</td>
+                        <td> <label id="Aciklama2"></label></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>3.Ürün</td>
+                        <td> <label id="Urun3"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Model 3</td>
+                        <td> <label id="Model3"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela 3</td>
+                        <td> <label id="Kartela3"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model 3</td>
+                        <td> <label id="KM3"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Cila 3</td>
+                        <td> <label id="Cila3"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama 3</td>
+                        <td> <label id="Aciklama3"></label></td>
+                    </tr>
+
+                    <tr>
+                        <td>4.Ürün</td>
+                        <td> <label id="Urun4"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Model 4</td>
+                        <td> <label id="Model4"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela 4</td>
+                        <td> <label id="Kartela4"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model 4</td>
+                        <td> <label id="KM4"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Cila 4</td>
+                        <td> <label id="Cila4"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama 4</td>
+                        <td> <label id="Aciklama4"></label></td>
+                    </tr>
+
+                    <tr>
+                        <td>Kapora Fiyat</td>
+                        <td><label id="KapFiyat"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Toplam Fiyat</td>
+                        <td><label id="TotalFiyat"></label></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="printDiv('YazdirArea')">Yazdır</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">İptal</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function () {
+            
+
+            FirstLoginPageOrderList();
+        });
+        function reloadPage() {
+            location.reload();
+        }
+</script>
+

@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="~/Content/css/main.css">
     <!-- style CSS
         ============================================ -->
-
+    <link rel="stylesheet" href="~/Content/css/datapicker/datepicker3.css">
     <link href="~/Content/css/style.css" rel="stylesheet" />
     <!-- responsive CSS
         ============================================ -->
@@ -72,8 +72,8 @@
 
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/js/datapicker/datepicker-active.js"></script>
     <script src="~/Scripts/MyLib/MtsLib.js"></script>
 
 </head>
@@ -100,38 +100,51 @@
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
                                 <li>
-                                    <a data-toggle="collapse" data-target="#Charts" href="#">Anasayfa</a>
+                                    <a data-toggle="collapse" data-target="#Charts" href="/Home/Index">Anasayfa</a>
 
                                 </li>
                                 <li>
                                     <a data-toggle="collapse" data-target="#demoevent" href="#">Kullanıcı</a>
                                     <ul id="demoevent" class="collapse dropdown-header-top">
-                                        <li><a href="#">Kullanıcı Listesi</a></li>
-                                        <li><a href="#">Kullanıcı Ekle</a></li>
+                                        <li><a href="/User/Index">Kullanıcı Listesi</a></li>
+                                        <li><a href="/User/AddUsers">Kullanıcı Ekle</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a data-toggle="collapse" data-target="#democrou" href="#">Sipariş</a>
                                     <ul id="democrou" class="collapse dropdown-header-top">
-                                        <li><a href="#">Sipariş Ekle</a></li>
-                                        <li><a href="#">Sipariş Listesi</a></li>
+                                        <li><a href="/Order/AddOrder">Sipariş Ekle</a></li>
+                                        <li><a href="/Order/Index">Sipariş Listesi</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a data-toggle="collapse" data-target="#demolibra" href="#">Ürün</a>
                                     <ul id="demolibra" class="collapse dropdown-header-top">
-                                        <li><a href="#">Ürün Ekle</a></li>
-                                        <li><a href="#">Ürün Listesi</a></li>
+                                        <li><a href="/Product/ProductAdd">Ürün Ekle</a></li>
+                                        <li><a href="/Product/Index">Ürün Listesi</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a data-toggle="collapse" data-target="#demodepart" href="#">Model</a>
                                     <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Öodel Listesi</a></li>
-                                        <li><a href="data-table.html">Model Ekle</a></li>
+                                        <li><a href="/MDL/Index">Model Listesi</a></li>
+                                        <li><a href="/MDL/AddMdl">Model Ekle</a></li>
                                     </ul>
                                 </li>
-
+                                <li>
+                                    <a data-toggle="collapse" data-target="#Kumas" href="#">Kartela</a>
+                                    <ul id="demodepart" class="collapse dropdown-header-top">
+                                        <li><a href="/Catalog/Index">Kartela Listesi</a></li>
+                                        <li><a href="/CatalogL/AddCatalog">Kartela Ekle</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a data-toggle="collapse" data-target="#Kp" href="#">Kartela Ürünü</a>
+                                    <ul id="demodepart" class="collapse dropdown-header-top">
+                                        <li><a href="/CatalogProduct/Index">Kartela Ürün Listesi</a></li>
+                                        <li><a href="/CatalogProduct/CatalogProductAdd">Kartelaya Ürün Ekle</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -162,7 +175,10 @@
                             <a data-toggle="tab" href="#Tables"><i class="notika-icon notika-windows"></i> Model</a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#Kumas"><i class="notika-icon notika-windows"></i> Kumaş</a>
+                            <a data-toggle="tab" href="#Kumas"><i class="notika-icon notika-windows"></i> Kartela</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#Kp"><i class="notika-icon notika-windows"></i> Kartela Ürünü</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
@@ -172,10 +188,10 @@
                         <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="#">Kullanıcı Listesi</a>
+                                    <a href="/User/Index">Kullanıcı Listesi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Kullanıcı Ekle</a>
+                                    <a href="/User/AddUsers">Kullanıcı Ekle</a>
                                 </li>
 
                             </ul>
@@ -183,10 +199,10 @@
                         <div id="Interface" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="OrderList.html">Sipariş Listesi</a>
+                                    <a href="/Order/Index">Sipariş Listesi</a>
                                 </li>
                                 <li>
-                                    <a href="Order.html">Sipariş Ekle</a>
+                                    <a href="/Order/AddOrder">Sipariş Ekle</a>
                                 </li>
 
                             </ul>
@@ -194,10 +210,10 @@
                         <div id="Charts" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="ProductList.html">Ürün Listesi</a>
+                                    <a href="/Product/Index">Ürün Listesi</a>
                                 </li>
                                 <li>
-                                    <a href="Product.html">Ürün Ekle</a>
+                                    <a href="/Product/ProductAdd">Ürün Ekle</a>
                                 </li>
 
                             </ul>
@@ -205,26 +221,26 @@
                         <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="ModelList.html">Model Listesi</a>
+                                    <a href="/MDL/Index">Model Listesi</a>
                                 </li>
                                 <li>
-                                    <a href="Model.html">Model Ekle</a>
+                                    <a href="/MDL/AddMdl">Model Ekle</a>
                                 </li>
                             </ul>
                         </div>
                         <div id="Kumas" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="Catalog.html">Kartela Ekle</a>
+                                    <a href="/CatalogL/AddCatalog">Kartela Ekle</a>
                                 </li>
                                 <li>
-                                    <a href="CatalogList.html">Kartela List</a>
+                                    <a href="/Catalog/Index">Kartela List</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ürün List</a>
+                                    <a href="/CatalogProduct/Index">Ürün List</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ürün Ekle</a>
+                                    <a href="/CatalogProduct/CatalogProductAdd">Ürün Ekle</a>
                                 </li>
                             </ul>
                         </div>

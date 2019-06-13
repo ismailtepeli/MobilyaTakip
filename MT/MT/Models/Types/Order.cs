@@ -28,5 +28,23 @@ namespace MT.Models.Types
         public Nullable<double> KaporaPrice { get; set; }
         public string KaporaType { get; set; }
         public string PaymentType { get; set; }
+        public Nullable<int> ProductId2 { get; set; }
+        public Nullable<int> ModelId2 { get; set; }
+        public Nullable<int> KartelaModelId2 { get; set; }
+        public string Cila2 { get; set; }
+        public string Description2 { get; set; }
+        public Nullable<int> ProductId3 { get; set; }
+        public Nullable<int> ModelId3 { get; set; }
+        public Nullable<int> KartelaModelId3 { get; set; }
+        public string Cila3 { get; set; }
+        public string Description3 { get; set; }
+        public Nullable<int> ProductId4 { get; set; }
+        public Nullable<int> ModelId4 { get; set; }
+        public Nullable<int> KartelaModelId4 { get; set; }
+        public string Cila4 { get; set; }
+        public string Description4 { get; set; }
+        public Nullable<int> KartelaId2 { get; set; }
+        public Nullable<int> KartelaId3 { get; set; }
+        public Nullable<int> KartelaId4 { get; set; }
     }
 }

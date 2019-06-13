@@ -51,5 +51,24 @@ namespace MT.Controllers
             var result = KartelaProductModel.KartelaForProduct(KartelaId);
             return JsonConvert.SerializeObject(result);
         }
+
+        public string orderAdd(Order order)
+        {
+            var result = OrderModel.Add(order);
+            return JsonConvert.SerializeObject(result);
+
+        }
+        public string FirstLoginOrderList()
+        {
+            var result = OrderModel.FirstLoginPageOrderList();
+            return JsonConvert.SerializeObject(result);
+        }
+
+
+        public string OrderDetail(int Id)
+        {
+            var result = OrderModel.OrderDetail(Id);
+            return JsonConvert.SerializeObject(result);
+        }
     }
 }

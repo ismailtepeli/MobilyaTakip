@@ -73,49 +73,175 @@
                     <td>Teslim Tarihi</td>
                     <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy" id="LastOrderDate" /></td>
                 </tr>
-
-                <tr>
-                    <td>Ürün</td>
-                    <td>
-                        <select class="form-control" id="Product" onchange="GetProductModelForOrderPageSelectList()">
-                            
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Model No</td>
-                    <td>
-                        <select class="form-control" id="Model">
-                             
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Kartela</td>
-                    <td>
-                        <select class="form-control" id="Kartela" onchange="GetKartelaModelForOrderPageSelectList()">
-                             
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Kartela Model</td>
-                    <td>
-                        <select class="form-control" id="KartelaProduct"></select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Cila  </td>
-                    <td>
-                        <input type="text" class="form-control" placeholder="Cila" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Açıklama  </td>
-                    <td>
-                        <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz"></textarea>
-                    </td>
-                </tr>
+                <tbody id="Urun1">
+                    <tr>
+                        <td>Ürün 1</td>
+                        <td>
+                            <select class="form-control" id="Product" onchange="GetProductModelForOrderPageSelectList()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Model No</td>
+                        <td>
+                            <select class="form-control" id="Model"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela</td>
+                        <td>
+                            <select class="form-control" id="Kartela" onchange="GetKartelaModelForOrderPageSelectList()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model</td>
+                        <td>
+                            <select class="form-control" id="KartelaProduct"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cila  </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Cila" id="Cila" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama  </td>
+                        <td>
+                            <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" onclick="Urun2Ac();" class="btn btn-block btn-sm btn-primary">Ekstra Ürün Ekle</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody id="Urun2">
+                    <tr>
+                        <td>Ürün 2</td>
+                        <td>
+                            <select class="form-control" id="Product2" onchange="GetProductModelForOrderPageSelectList2()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Model No</td>
+                        <td>
+                            <select class="form-control" id="Model2"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela</td>
+                        <td>
+                            <select class="form-control" id="Kartela2" onchange="GetKartelaModelForOrderPageSelectList2()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model</td>
+                        <td>
+                            <select class="form-control" id="KartelaProduct2"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cila  </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Cila" id="Cila2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama  </td>
+                        <td>
+                            <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description2"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" onclick="Urun3Ac();" class="btn btn-block btn-sm btn-primary">Ekstra Ürün Ekle</button>
+                        </td>
+                    </tr>
+                </tbody>
+                
+                <tbody id="Urun3">
+                    <tr>
+                        <td>Ürün 3</td>
+                        <td>
+                            <select class="form-control" id="Product3" onchange="GetProductModelForOrderPageSelectList3()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Model No</td>
+                        <td>
+                            <select class="form-control" id="Model3"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela</td>
+                        <td>
+                            <select class="form-control" id="Kartela3" onchange="GetKartelaModelForOrderPageSelectList3()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model</td>
+                        <td>
+                            <select class="form-control" id="KartelaProduct3"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cila  </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Cila" id="Cila3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama  </td>
+                        <td>
+                            <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description3"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" onclick="Urun4Ac();" class="btn btn-block btn-sm btn-primary">Ekstra Ürün Ekle</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody id="Urun4">
+                    <tr>
+                        <td>Ürün 4</td>
+                        <td>
+                            <select class="form-control" id="Product4" onchange="GetProductModelForOrderPageSelectList4()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Model No</td>
+                        <td>
+                            <select class="form-control" id="Model4"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela</td>
+                        <td>
+                            <select class="form-control" id="Kartela4" onchange="GetKartelaModelForOrderPageSelectList4()"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kartela Model</td>
+                        <td>
+                            <select class="form-control" id="KartelaProduct4"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cila  </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Cila" id="Cila4" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Açıklama  </td>
+                        <td>
+                            <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description4"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+                 
                 <tr>
                     <td>Ürün Tutarı</td>
                     <td><input class="form-control" type="text" placeholder="0 TL" id="Price"/> </td>
@@ -128,8 +254,8 @@
                     <td>Kapora</td>
                     <td>
                         <input type="text" class="form-control" placeholder="0 TL" id="Kapora" />
-                        Nakit <input type="checkbox" class="form-check" />&nbsp;
-                        Kredi Kartı <input type="checkbox" class="form-check" />&nbsp;
+                        Nakit <input type="checkbox" class="form-check" value="Nakit" id="KaporaNakit"/>&nbsp;
+                        Kredi Kartı <input type="checkbox" class="form-check" value="Kredi Kartı" id="KaporaKredi" />&nbsp;
 
                     </td>
                 </tr>
@@ -140,14 +266,14 @@
                 <tr>
                     <td>Ödeme Tipi</td>
                     <td>
-                        Nakit <input type="checkbox" class="form-check" />&nbsp;
-                        Kredi Kartı <input type="checkbox" class="form-check" />&nbsp;
-                        Senet <input type="checkbox" class="form-check" />
-                        Çek <input type="checkbox" class="form-check" />
+                        Nakit <input type="checkbox" class="form-check" value="Nakit" id="PaymentNakit" />&nbsp;
+                        Kredi Kartı <input type="checkbox" class="form-check" value="Kredi Kartı" id="PaymentKredi" />&nbsp;
+                        Senet <input type="checkbox" class="form-check" value="Senet" id="PaymentSenet" />
+                        Çek <input type="checkbox" class="form-check" value="Çek" id="PaymentCek"/>
                     </td>
                 </tr>
                 <tr>
-                    <td><button class="btn btn-success">Kaydet</button></td>
+                    <td colspan="2"><button class="btn btn-success pull-right" onclick="CreateOrder();">Kaydet</button></td>
                 </tr>
             </table>
         </div>
@@ -156,21 +282,48 @@
 </div>
 
 <script type="text/javascript">
+   
+    function Urun2Ac() {
+        $("#Urun2").show();
+    }
+    function Urun3Ac() {
+        $("#Urun3").show();
+    }
+    function Urun4Ac() {
+        $("#Urun4").show();
+    }
     $(document).ready(function () {
+        $("#Urun2").hide();
+        $("#Urun3").hide();
+        $("#Urun4").hide();
         $("#AddCustomerPanel").hide();
         GetCustomerForOrderPageSelectList();
+       
         $("#OrderDate").datepicker({
+          
             autoclose: true,
-            todayHighlight: true
+            todayHighlight: true,
+            todayHighlight: true,
+            dateFormat: 'dd/mm/yyyy',
+            language:'tr'
         }).datepicker('update', new Date());
 
         $("#LastOrderDate").datepicker({
+            todayHighlight: true,
+            dateFormat: 'dd/mm/yyyy',
             autoclose: true,
-            todayHighlight: true
+            todayHighlight: true,
+            language:'tr'
         }).datepicker();
 
         ProductListForOrderPageSelectList();
+        ProductListForOrderPageSelectList2();
+        ProductListForOrderPageSelectList3();
+        ProductListForOrderPageSelectList4();
         GetKartelaForOrderPageSelectList();
+        GetKartelaForOrderPageSelectList2();
+        GetKartelaForOrderPageSelectList3();
+        GetKartelaForOrderPageSelectList4();
         $("#Price").change(function () {
             $("#lblFiyat").text($("#Price").val());
         })

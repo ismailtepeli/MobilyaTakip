@@ -184,6 +184,7 @@
     <Compile Include="Models\KartelaModel.cs" />
     <Compile Include="Models\KartelaProductModel.cs" />
     <Compile Include="Models\MDLModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Types\CatalogProduct.cs" />
     <Compile Include="Models\Types\Customer.cs">
@@ -211,6 +212,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MTS.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Types\Order.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Types\OrderCustomerProduct.cs" />
     <Compile Include="Models\Types\Product.cs">
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
@@ -522,6 +527,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddUsers.cshtml" />
     <Content Include="Views\Order\AddOrder.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

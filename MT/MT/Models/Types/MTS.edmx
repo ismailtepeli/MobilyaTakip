@@ -50,6 +50,24 @@
           <Property Name="KaporaPrice" Type="float" />
           <Property Name="KaporaType" Type="varchar(max)" />
           <Property Name="PaymentType" Type="varchar(max)" />
+          <Property Name="ProductId2" Type="int" />
+          <Property Name="ModelId2" Type="int" />
+          <Property Name="KartelaModelId2" Type="int" />
+          <Property Name="Cila2" Type="varchar(max)" />
+          <Property Name="Description2" Type="varchar(max)" />
+          <Property Name="ProductId3" Type="int" />
+          <Property Name="ModelId3" Type="int" />
+          <Property Name="KartelaModelId3" Type="int" />
+          <Property Name="Cila3" Type="varchar(max)" />
+          <Property Name="Description3" Type="varchar(max)" />
+          <Property Name="ProductId4" Type="int" />
+          <Property Name="ModelId4" Type="int" />
+          <Property Name="KartelaModelId4" Type="int" />
+          <Property Name="Cila4" Type="varchar(max)" />
+          <Property Name="Description4" Type="varchar(max)" />
+          <Property Name="KartelaId2" Type="int" />
+          <Property Name="KartelaId3" Type="int" />
+          <Property Name="KartelaId4" Type="int" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -188,6 +206,24 @@
           <Property Name="KaporaPrice" Type="Double" />
           <Property Name="KaporaType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PaymentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProductId2" Type="Int32" />
+          <Property Name="ModelId2" Type="Int32" />
+          <Property Name="KartelaModelId2" Type="Int32" />
+          <Property Name="Cila2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProductId3" Type="Int32" />
+          <Property Name="ModelId3" Type="Int32" />
+          <Property Name="KartelaModelId3" Type="Int32" />
+          <Property Name="Cila3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProductId4" Type="Int32" />
+          <Property Name="ModelId4" Type="Int32" />
+          <Property Name="KartelaModelId4" Type="Int32" />
+          <Property Name="Cila4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KartelaId2" Type="Int32" />
+          <Property Name="KartelaId3" Type="Int32" />
+          <Property Name="KartelaId4" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -266,6 +302,24 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="MTSModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="KartelaId4" ColumnName="KartelaId4" />
+                <ScalarProperty Name="KartelaId3" ColumnName="KartelaId3" />
+                <ScalarProperty Name="KartelaId2" ColumnName="KartelaId2" />
+                <ScalarProperty Name="Description4" ColumnName="Description4" />
+                <ScalarProperty Name="Cila4" ColumnName="Cila4" />
+                <ScalarProperty Name="KartelaModelId4" ColumnName="KartelaModelId4" />
+                <ScalarProperty Name="ModelId4" ColumnName="ModelId4" />
+                <ScalarProperty Name="ProductId4" ColumnName="ProductId4" />
+                <ScalarProperty Name="Description3" ColumnName="Description3" />
+                <ScalarProperty Name="Cila3" ColumnName="Cila3" />
+                <ScalarProperty Name="KartelaModelId3" ColumnName="KartelaModelId3" />
+                <ScalarProperty Name="ModelId3" ColumnName="ModelId3" />
+                <ScalarProperty Name="ProductId3" ColumnName="ProductId3" />
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
+                <ScalarProperty Name="Cila2" ColumnName="Cila2" />
+                <ScalarProperty Name="KartelaModelId2" ColumnName="KartelaModelId2" />
+                <ScalarProperty Name="ModelId2" ColumnName="ModelId2" />
+                <ScalarProperty Name="ProductId2" ColumnName="ProductId2" />
                 <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
                 <ScalarProperty Name="KaporaType" ColumnName="KaporaType" />
                 <ScalarProperty Name="KaporaPrice" ColumnName="KaporaPrice" />
