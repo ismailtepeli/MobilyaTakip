@@ -9,8 +9,8 @@ namespace MT.Models.Types
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime FinishDate { get; set; }
+        public string StartDate { get; set; }
+        public string FinishDate { get; set; }
         public int? ProductId { get; set; }
         public int? ModelId { get; set; }
         public int? KartelaId { get; set; }

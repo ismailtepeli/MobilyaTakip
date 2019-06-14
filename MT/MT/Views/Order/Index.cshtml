@@ -16,10 +16,10 @@
                             <tr>
                                 <th>Ad Soyad</th>
                                 <th>Telefon</th>
-
                                 <th>Başlangıç Tarihi</th>
                                 <th>Bitiş Tarihi</th>
                                 <th>Fiyat</th>
+                                <th>Kalan</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
@@ -46,11 +46,11 @@
                 <table class="table table-borderless">
                   <tr>
                       <td>Sipariş Tarihi</td>
-                      <td><label></label></td>
+                      <td><label id="StartDate"></label></td>
                   </tr>
                     <tr>
                         <td>Teslim Tarihi</td>
-                        <td><label></label></td>
+                        <td><label id="FinishDate"></label></td>
                     </tr>
                     <tr>
                         <td>Müşteri Ad Soyad</td>
@@ -171,11 +171,15 @@
 
                     <tr>
                         <td>Kapora Fiyat</td>
-                        <td><label id="KapFiyat"></label></td>
+                        <td><label id="KapFiyat"></label> </td>
                     </tr>
                     <tr>
                         <td>Toplam Fiyat</td>
                         <td><label id="TotalFiyat"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Kalan Tutar</td>
+                        <td><label id="TotalKalan"></label></td>
                     </tr>
                 </table>
             </div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using MT.Models.Types;
 using System.Data.Entity.SqlServer;
+using System.Globalization;
 
 namespace MT.Models
 {
@@ -82,6 +83,7 @@ namespace MT.Models
                                      Phone1 = customer.Phone1,
                                      //StartDate = Convert.ToDateTime(order.StartDate)
                                      //FinishDate=Convert.ToDateTime(order.FinishDate),
+                                     //KaporaPrice=Convert.ToDateTime(order.KaporaPrice),
                                      // TotalPrice=Convert.ToDouble(order.TotalPrice)
                                  }
                                ).ToList();
@@ -94,36 +96,44 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
+                 
                 #region asdasdas
                 var detail = (from order in db.Orders
                               join customer in db.Customers on order.CustomerId equals customer.Id
-                              into customerNull from CCNull in customerNull.DefaultIfEmpty()
+                              into customerNull
+                              from CCNull in customerNull.DefaultIfEmpty()
 
                               join product in db.Products on order.ProductId equals product.Id
-                              into productNull        from ppNull in productNull.DefaultIfEmpty()
+                              into productNull
+                              from ppNull in productNull.DefaultIfEmpty()
 
                               join model in db.tblModels on order.ModelId equals model.Id
-                               into  modelNull        from mdlNull in modelNull.DefaultIfEmpty()
+                               into modelNull
+                              from mdlNull in modelNull.DefaultIfEmpty()
 
                               join kartela in db.Kartelas on order.KartelaId equals kartela.Id
-                                 into  KartelaNull        from KNull in KartelaNull.DefaultIfEmpty()
+                                 into KartelaNull
+                              from KNull in KartelaNull.DefaultIfEmpty()
 
                               join kartelaModel in db.KartelaProducts on order.KartelaModelId equals kartelaModel.Id
-                               into  KmodelNull        from KMNull in KmodelNull.DefaultIfEmpty()
+                               into KmodelNull
+                              from KMNull in KmodelNull.DefaultIfEmpty()
 
 
 
                               join product2 in db.Products on order.ProductId2 equals product2.Id
-                                 into  product2Null        from ProNull in product2Null.DefaultIfEmpty()
+                                 into product2Null
+                              from ProNull in product2Null.DefaultIfEmpty()
 
                               join model2 in db.tblModels on order.ModelId2 equals model2.Id
-                                 into  model2Null        from mdl2Null in model2Null.DefaultIfEmpty()
+                                 into model2Null
+                              from mdl2Null in model2Null.DefaultIfEmpty()
 
                               join kartela2 in db.Kartelas on order.KartelaId2 equals kartela2.Id
                                  into kartela2Null
                               from K2Null in kartela2Null.DefaultIfEmpty()
 
-                              join kartelaModel2 in db.KartelaProducts   on order.KartelaModelId2 equals kartelaModel2.Id
+                              join kartelaModel2 in db.KartelaProducts on order.KartelaModelId2 equals kartelaModel2.Id
                                 into Kmodel2Null
                               from KM2Null in Kmodel2Null.DefaultIfEmpty()
 
@@ -167,7 +177,7 @@ namespace MT.Models
                               select new OrderCustomerProduct
                               {
                                   Id = order.Id,
-                                  CustomerId = (CCNull.Id== null) ? 9999 : CCNull.Id,
+                                  CustomerId = (CCNull.Id == null) ? 9999 : CCNull.Id,
                                   //KartelaProductName4 =  (KM4Null.ProductName == null) ? "" : KM4Null.ProductName,
                                   ProductId = (ppNull.Id == null) ? 9999 : ppNull.Id,
                                   ModelId = (mdlNull.Id == null) ? 9999 : mdlNull.Id,
@@ -203,9 +213,15 @@ namespace MT.Models
                                   KartelaName4 = (K4Null.KartelaName == null) ? "" : K4Null.KartelaName,
                                   KartelaProductName4 = (KM4Null.ProductName == null) ? "" : KM4Null.ProductName,
                                   Cila4 = order.Cila4,
-                                  Description4 = order.Description4
+                                  Description4 = order.Description4,
 
-                              }
+                                  TotalPrice = order.TotalPrice,
+                                  KaporaPrice = order.KaporaPrice,
+                                  StartDate = order.StartDate.ToString(),
+                                  FinishDate=order.FinishDate.ToString(),
+                                  KaporaType = order.KaporaType
+                      
+                              } 
                             ).ToList();
                 return detail;
                 #endregion
@@ -214,5 +230,8 @@ namespace MT.Models
         }
 
 
+
+
+        
     }
 }

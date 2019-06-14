@@ -944,6 +944,7 @@ function FirstLoginPageOrderList() {
                     + "<td>" + this.Phone1 + "</td>"
                     + "<td>" + this.StartDate + "</td>"
                     + "<td>" + this.FinishDate + "</td>"
+                    + "<td>" + this.KaporaPrice + "</td>"
                     + "<td>" + this.TotalPrice + "</td>"
                     + "<td><button class='btn btn-primary' data-toggle='modal' data-target='#PageDetail' onClick='OrderDetail(" + this.Id + ")'>Detay</button> <button class='btn btn-success'>Düzenle</button> <button class='btn btn-danger'>Sil</button></td>"
                     + "</tr>"
@@ -995,11 +996,23 @@ function OrderDetail(Id) {
                 $("#Kartela4").text(this.KartelaName4),
                 $("#KM4").text(this.KartelaProductName4),
                 $("#Cila4").text(this.Cila4),
-                $("#Aciklama4").text(this.Description4)
+                $("#Aciklama4").text(this.Description4),
+                $("#KapFiyat").text(this.KaporaPrice + " TL - " + this.KaporaType),
+                $("#TotalFiyat").text(this.TotalPrice + " TL")
+              
+                $("#StartDate").text(this.StartDate)
+                $("#FinishDate").text(this.FinishDate)
+             
+                var kalanTutar = this.TotalPrice - this.KaporaPrice;
+                $("#TotalKalan").text(kalanTutar + " TL")
+                
             })
         }
     })
 }
+
+ 
+
 
 function printDiv(divName) {
     var printContents = document.getElementById(divName).innerHTML;
