@@ -11,32 +11,32 @@ namespace MT.Models.Types
         public int CustomerId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
-        public int ProductId { get; set; }
-        public int ModelId { get; set; }
-        public int KartelaId { get; set; }
-        public int KartelaModelId { get; set; }
+        public int? ProductId { get; set; }
+        public int? ModelId { get; set; }
+        public int? KartelaId { get; set; }
+        public int? KartelaModelId { get; set; }
         public string Cila { get; set; }
         public string Description { get; set; }
-        public double TotalPrice { get; set; }
-        public double KaporaPrice { get; set; }
+        public double? TotalPrice { get; set; }
+        public double? KaporaPrice { get; set; }
         public string KaporaType { get; set; }
         public string PaymentType { get; set; }
 
-        public int ProductId2 { get; set; }
-        public int ModelId2 { get; set; }
-        public int KartelaModelId2 { get; set; }
+        public int? ProductId2 { get; set; }
+        public int? ModelId2 { get; set; }
+        public int? KartelaModelId2 { get; set; }
         
         public string Description2 { get; set; }
 
-        public int ProductId3 { get; set; }
-        public int ModelId3 { get; set; }
-        public int KartelaModelId3 { get; set; }
+        public int? ProductId3 { get; set; }
+        public int? ModelId3 { get; set; }
+        public int? KartelaModelId3 { get; set; }
         public string Cila3 { get; set; }
         public string Description3 { get; set; }
 
-        public int ProductId4 { get; set; }
-        public int ModelId4 { get; set; }
-        public int KartelaModelId4 { get; set; }
+        public int? ProductId4 { get; set; }
+        public int? ModelId4 { get; set; }
+        public int? KartelaModelId4 { get; set; }
         public string Cila4 { get; set; }
         public string Description4 { get; set; }
 
