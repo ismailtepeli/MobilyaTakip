@@ -72,5 +72,10 @@ namespace MT.Models.Types
         public string KartelaName4 { get; set; }
         public string KartelaProductName4 { get; set; }
 
+
+        public int? KartelaId2 { get; set; }
+        public int? KartelaId3 { get; set; }
+        public int? KartelaId4 { get; set; }
+
     }
 }

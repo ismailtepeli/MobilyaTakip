@@ -73,18 +73,20 @@ namespace MT.Models
 
             using (var db = new MTSEntities())
             {
+               
                 var orderList = (from order in db.Orders
                                  join customer in db.Customers on order.CustomerId equals customer.Id
+
                                  select new OrderCustomerProduct
                                  {
                                      Id = order.Id,
                                      CustomerId = customer.Id,
                                      NameSurname = customer.NameSurname,
                                      Phone1 = customer.Phone1,
-                                     //StartDate = Convert.ToDateTime(order.StartDate)
-                                     //FinishDate=Convert.ToDateTime(order.FinishDate),
-                                     //KaporaPrice=Convert.ToDateTime(order.KaporaPrice),
-                                     // TotalPrice=Convert.ToDouble(order.TotalPrice)
+                                     TotalPrice = order.TotalPrice,
+                                     FinishDate = order.FinishDate.ToString(),
+                                     StartDate = order.StartDate.ToString(),
+                                     KaporaPrice=order.KaporaPrice
                                  }
                                ).ToList();
                 return orderList;
@@ -96,7 +98,7 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                 
+
                 #region asdasdas
                 var detail = (from order in db.Orders
                               join customer in db.Customers on order.CustomerId equals customer.Id
@@ -218,10 +220,10 @@ namespace MT.Models
                                   TotalPrice = order.TotalPrice,
                                   KaporaPrice = order.KaporaPrice,
                                   StartDate = order.StartDate.ToString(),
-                                  FinishDate=order.FinishDate.ToString(),
+                                  FinishDate = order.FinishDate.ToString(),
                                   KaporaType = order.KaporaType
-                      
-                              } 
+
+                              }
                             ).ToList();
                 return detail;
                 #endregion
@@ -230,8 +232,138 @@ namespace MT.Models
         }
 
 
+        public static int Delete(int Id)
+        {
+            try
+            {
+                using (var db=new MTSEntities())
+                {
+                    var removeTo = db.Orders.SingleOrDefault(x => x.Id == Id);
+                    if (removeTo!=null)
+                    {
+                        db.Orders.Remove(removeTo);
+                        db.SaveChanges();
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
 
 
-        
+        public static List<OrderCustomerProduct> Edit(int Id)
+        {
+            using (var db=new MTSEntities())
+            {
+                var getOrder = (from order in db.Orders
+                                join customer in db.Customers on order.CustomerId equals customer.Id
+                                where order.Id == Id
+                                select new OrderCustomerProduct
+                                {
+                                    Id=order.Id,
+                                    CustomerId=customer.Id,
+                                    StartDate=order.StartDate.ToString(),
+                                    FinishDate=order.FinishDate.ToString(),
+
+                                    ProductId =order.ProductId,
+                                    ModelId=order.ModelId,
+                                    KartelaId=order.KartelaId,
+                                    KartelaModelId=order.KartelaModelId,
+                                    Cila=order.Cila,
+                                    Description=order.Description,
+
+
+                                    ProductId2 = order.ProductId2,
+                                    ModelId2 = order.ModelId2,
+                                    KartelaId2 = order.KartelaId2,
+                                    KartelaModelId2 = order.KartelaModelId2,
+                                    Cila2 = order.Cila2,
+                                    Description2 = order.Description2,
+
+                                    ProductId3 = order.ProductId3,
+                                    ModelId3 = order.ModelId3,
+                                    KartelaId3 = order.KartelaId3,
+                                    KartelaModelId3 = order.KartelaModelId3,
+                                    Cila3 = order.Cila3,
+                                    Description3 = order.Description3,
+
+                                    ProductId4 = order.ProductId4,
+                                    ModelId4 = order.ModelId4,
+                                    KartelaId4 = order.KartelaId4,
+                                    KartelaModelId4 = order.KartelaModelId4,
+                                    Cila4 = order.Cila4,
+                                    Description4 = order.Description4,
+
+                                    KaporaType = order.KaporaType,
+                                    PaymentType = order.PaymentType,
+                                    TotalPrice=order.TotalPrice
+
+                                }
+                              ).ToList();
+                return getOrder;
+                    
+            }
+        }
+
+        public static int Update(Order order)
+        {
+            try
+            {
+                using (var db=new MTSEntities())
+                {
+                    Order temp = db.Orders.SingleOrDefault(x => x.Id == order.Id);
+                    temp.FinishDate = order.FinishDate;
+                    temp.StartDate = order.StartDate;
+
+                    temp.ProductId = order.ProductId;
+                    temp.ProductId2 = order.ProductId2;
+                    temp.ProductId3 = order.ProductId3;
+                    temp.ProductId4 = order.ProductId4;
+
+                    temp.ModelId = order.ModelId;
+                    temp.ModelId2 = order.ModelId2;
+                    temp.ModelId3 = order.ModelId3;
+                    temp.ModelId4 = order.ModelId4;
+
+                    temp.KartelaModelId = order.KartelaModelId;
+                    temp.KartelaModelId2 = order.KartelaModelId2;
+                    temp.KartelaModelId3 = order.KartelaModelId3;
+                    temp.KartelaModelId4 = order.KartelaModelId4;
+
+                    temp.KartelaId = order.KartelaId;
+                    temp.KartelaId2 = order.KartelaId2;
+                    temp.KartelaId3 = order.KartelaId3;
+                    temp.KartelaId4 = order.KartelaId4;
+
+                    temp.Description = order.Description;
+                    temp.Description2 = order.Description2;
+                    temp.Description3 = order.Description3;
+                    temp.Description4 = order.Description4;
+
+                    temp.CustomerId = order.CustomerId;
+
+                    temp.Cila = order.Cila;
+                    temp.Cila2 = order.Cila2;
+                    temp.Cila3 = order.Cila3;
+                    temp.Cila4 = order.Cila4;
+
+                    temp.TotalPrice = order.TotalPrice;
+                    db.SaveChanges();
+                    return 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
     }
 }

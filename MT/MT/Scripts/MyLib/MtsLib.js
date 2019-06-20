@@ -555,7 +555,7 @@ function GetCustomerForOrderPageSelectList() {
         success: function (data) {
 
             $("#SelectCustomer").html("");
-            $("#SelectCustomer").append("<option value='0' disabled selected> Müşteri Seçiniz</option>");
+            $("#SelectCustomer").append("<option value='0' disabled> Müşteri Seçiniz</option>");
             $.each(data, function () {
                 $("#SelectCustomer").append(
                     "<option value='" + this.Id + "'>" + this.NameSurname + " </option>"
@@ -564,6 +564,7 @@ function GetCustomerForOrderPageSelectList() {
         }
     })
 }
+
 
 
 function ProductListForOrderPageSelectList() {
@@ -650,6 +651,22 @@ function GetProductModelForOrderPageSelectList2() {
         }
     })
 }
+function GetProductModelForEditOrderPageSelectList2() {
+    var ProductId = $("#Product2").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/ProdocutForModel',
+        data: { ProductId: ProductId },
+        success: function (data) {
+            $("#EditModel2").html("");
+            $("#EditModel2").append("<option value='0' selected disabled>2. Model Seçiniz</option>");
+            $.each(data, function () {
+                $("#EditModel2").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
+            })
+        }
+    })
+}
 function GetProductModelForOrderPageSelectList3() {
     var ProductId = $("#Product3").val();
     $.ajax({
@@ -666,6 +683,22 @@ function GetProductModelForOrderPageSelectList3() {
         }
     })
 }
+function GetProductModelForEditOrderPageSelectList3() {
+    var ProductId = $("#Product3").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/ProdocutForModel',
+        data: { ProductId: ProductId },
+        success: function (data) {
+            $("#EditModel3").html("");
+            $("#EditModel3").append("<option value='0' selected disabled>3. Model Seçiniz</option>");
+            $.each(data, function () {
+                $("#EditModel3").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
+            })
+        }
+    })
+}
 function GetProductModelForOrderPageSelectList4() {
     var ProductId = $("#Product4").val();
     $.ajax({
@@ -674,16 +707,31 @@ function GetProductModelForOrderPageSelectList4() {
         url: '/Order/ProdocutForModel',
         data: { ProductId: ProductId },
         success: function (data) {
-            $("#Model4").html("");
-            $("#Model4").append("<option value='0' selected disabled>3. Model Seçiniz</option>");
+            $("#EditModel4").html("");
+            $("#EditModel4").append("<option value='0' selected disabled>3. Model Seçiniz</option>");
             $.each(data, function () {
-                $("#Model4").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
+                $("#EditModel4").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
             })
         }
     })
 }
 
-
+function GetProductModelForEditOrderPageSelectList4() {
+    var ProductId = $("#Product4").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/ProdocutForModel',
+        data: { ProductId: ProductId },
+        success: function (data) {
+            $("#EditModel4").html("");
+            $("#EditModel4").append("<option value='0' selected disabled>3. Model Seçiniz</option>");
+            $.each(data, function () {
+                $("#EditModel4").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
+            })
+        }
+    })
+}
 
 function GetKartelaForOrderPageSelectList() {
 
@@ -719,6 +767,23 @@ function GetKartelaForOrderPageSelectList2() {
         }
     })
 }
+function GetKartelaForEditOrderPageSelectList2() {
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaList',
+        success: function (data) {
+            $.each(data, function () {
+                $("#EditKartela2").append("<option value='0'  selected disabled>2. Kartela Seçiniz</option>");
+                $("#EditKartela2").append(
+                        "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
+                    )
+            })
+
+        }
+    })
+}
 function GetKartelaForOrderPageSelectList3() {
 
     $.ajax({
@@ -736,6 +801,24 @@ function GetKartelaForOrderPageSelectList3() {
         }
     })
 }
+
+function GetKartelaForOrderEditPageSelectList3() {
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaList',
+        success: function (data) {
+            $.each(data, function () {
+                $("#EditKartela3").append("<option value='0'  selected disabled>3. Kartela Seçiniz</option>");
+                $("#EditKartela3").append(
+                        "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
+                    )
+            })
+
+        }
+    })
+}
 function GetKartelaForOrderPageSelectList4() {
 
     $.ajax({
@@ -746,6 +829,23 @@ function GetKartelaForOrderPageSelectList4() {
             $.each(data, function () {
                 $("#Kartela4").append("<option value='0'  selected disabled>4. Kartela Seçiniz</option>");
                 $("#Kartela4").append(
+                        "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
+                    )
+            })
+
+        }
+    })
+}
+function GetKartelaForOrderEditPageSelectList4() {
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaList',
+        success: function (data) {
+            $.each(data, function () {
+                $("#EditKartela4").append("<option value='0'  selected disabled>4. Kartela Seçiniz</option>");
+                $("#EditKartela4").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
             })
@@ -801,6 +901,22 @@ function GetKartelaModelForOrderPageSelectList2() {
         }
     })
 }
+function GetKartelaModelForEditOrderPageSelectList2() {
+    var KartelaId = $("#EditKartela2").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaForProduct',
+        data: { KartelaId: KartelaId },
+        success: function (data) {
+            $("#EditKartelaProduct2").html("");
+            $("#EditKartelaProduct2").append("<option value='0' selected disabled>Kartela Modeli Seçiniz</option>");
+            $.each(data, function () {
+                $("#EditKartelaProduct2").append("<option value='" + this.Id + "'>" + this.ProductName + "</option>");
+            })
+        }
+    })
+}
 function GetKartelaModelForOrderPageSelectList3() {
     var KartelaId = $("#Kartela3").val();
     $.ajax({
@@ -817,6 +933,22 @@ function GetKartelaModelForOrderPageSelectList3() {
         }
     })
 }
+function GetKartelaModelForEditOrderPageSelectList3() {
+    var KartelaId = $("#EditKartela3").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaForProduct',
+        data: { KartelaId: KartelaId },
+        success: function (data) {
+            $("#EditKartelaProduct3").html("");
+            $("#EditKartelaProduct3").append("<option value='0' selected disabled>Kartela Modeli Seçiniz</option>");
+            $.each(data, function () {
+                $("#EditKartelaProduct3").append("<option value='" + this.Id + "'>" + this.ProductName + "</option>");
+            })
+        }
+    })
+}
 function GetKartelaModelForOrderPageSelectList4() {
     var KartelaId = $("#Kartela4").val();
     $.ajax({
@@ -829,6 +961,22 @@ function GetKartelaModelForOrderPageSelectList4() {
             $("#KartelaProduct4").append("<option value='0' selected disabled>Kartela Modeli Seçiniz</option>");
             $.each(data, function () {
                 $("#KartelaProduct4").append("<option value='" + this.Id + "'>" + this.ProductName + "</option>");
+            })
+        }
+    })
+}
+function GetKartelaModelForEditOrderPageSelectList4() {
+    var KartelaId = $("#EditKartela4").val();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/KartelaForProduct',
+        data: { KartelaId: KartelaId },
+        success: function (data) {
+            $("#EditKartelaProduct4").html("");
+            $("#EditKartelaProduct4").append("<option value='0' selected disabled>Kartela Modeli Seçiniz</option>");
+            $.each(data, function () {
+                $("#EditKartelaProduct4").append("<option value='" + this.Id + "'>" + this.ProductName + "</option>");
             })
         }
     })
@@ -938,15 +1086,22 @@ function FirstLoginPageOrderList() {
         url: '/Order/FirstLoginOrderList',
         success: function (data) {
             $.each(data, function () {
+                
+                var kalan = this.TotalPrice - this.KaporaPrice;
+                var date = new Date('"' + this.StartDate.substring(0, 11) + '"');
+                var dateF = new Date('"' + this.FinishDate.substring(0, 11) + '"');
+                date.toDateString();
+                var x = date;
                 $("#OrderTable").append(
                     "<tr>"
                     + "<td>" + this.NameSurname + "</td>"
                     + "<td>" + this.Phone1 + "</td>"
-                    + "<td>" + this.StartDate + "</td>"
-                    + "<td>" + this.FinishDate + "</td>"
-                    + "<td>" + this.KaporaPrice + "</td>"
-                    + "<td>" + this.TotalPrice + "</td>"
-                    + "<td><button class='btn btn-primary' data-toggle='modal' data-target='#PageDetail' onClick='OrderDetail(" + this.Id + ")'>Detay</button> <button class='btn btn-success'>Düzenle</button> <button class='btn btn-danger'>Sil</button></td>"
+                    + "<td>" + date.toLocaleDateString() + "</td>"
+                    + "<td>" + dateF.toLocaleDateString() + "</td>"
+                              + "<td>" + this.TotalPrice + "</td>"
+                    + "<td>" + kalan + "</td>"
+
+                    + "<td><button class='btn btn-primary' data-toggle='modal' data-target='#PageDetail' onClick='OrderDetail(" + this.Id + ")'>Detay</button> <button class='btn btn-success' onClick='OrderEdit(" + this.Id + ")' data-toggle='modal' data-target='#PageEdit'>Düzenle</button> <button class='btn btn-danger' onclick='OrderDelete(" + this.Id + ")'>Sil</button></td>"
                     + "</tr>"
                    )
             })
@@ -955,6 +1110,8 @@ function FirstLoginPageOrderList() {
         }
     })
 }
+
+
 
 
 function OrderDetail(Id) {
@@ -999,19 +1156,147 @@ function OrderDetail(Id) {
                 $("#Aciklama4").text(this.Description4),
                 $("#KapFiyat").text(this.KaporaPrice + " TL - " + this.KaporaType),
                 $("#TotalFiyat").text(this.TotalPrice + " TL")
-              
-                $("#StartDate").text(this.StartDate)
-                $("#FinishDate").text(this.FinishDate)
-             
+                var date = new Date('"' + this.StartDate.substring(0, 11) + '"');
+                var dateF = new Date('"' + this.FinishDate.substring(0, 11) + '"');
+                $("#StartDate").text(date.toLocaleDateString())
+                $("#FinishDate").text(dateF.toLocaleDateString())
+
                 var kalanTutar = this.TotalPrice - this.KaporaPrice;
                 $("#TotalKalan").text(kalanTutar + " TL")
-                
+
             })
         }
     })
 }
 
- 
+function OrderDelete(Id) {
+    if (confirm("Silmek istediğine eminmisin")) {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/Order/OrderDelete',
+            data: { Id: Id },
+            success: function (data) {
+                alert("Silme işlemi gerçekleştirildi"); location.reload();
+            },
+            error: function (xhr) {
+                alert("işlem başarısız");
+            }
+        })
+    }
+}
+
+
+function OrderEdit(Id) {
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/Order/OrderEdit',
+        data: { Id: Id },
+        success: function (data) {
+            $.each(data, function () {
+                 
+                var date = new Date('"' + this.StartDate.substring(0, 11) + '"');
+                var dateF = new Date('"' + this.FinishDate.substring(0, 11) + '"');
+                document.getElementById("SelectCustomer").value = this.CustomerId;
+                document.getElementById("OrderDate").value = date.toLocaleDateString();
+                document.getElementById("LastOrderDateEdit").value = dateF.toLocaleDateString();
+
+                document.getElementById("Product").value = this.ProductId;
+                document.getElementById("HiddenModelId").value = this.ModelId;
+                document.getElementById("Kartela").value = this.KartelaId;
+                document.getElementById("HiddenKartelaProductId").value = this.KartelaModelId;
+                document.getElementById("Cila").value = this.Cila;
+                document.getElementById("Description").value = this.Description;
+
+
+                document.getElementById("Product2").value = this.ProductId2;
+                document.getElementById("HiddenModelId2").value = this.ModelId2;
+                document.getElementById("EditKartela2").value = this.KartelaId2;
+                document.getElementById("HiddenKartelaProductId2").value = this.KartelaModelId2;
+                document.getElementById("EditCila2").value = this.Cila2;
+                document.getElementById("Description2").value = this.Description2;
+
+                document.getElementById("Product3").value = this.ProductId3;
+                document.getElementById("HiddenModelId3").value = this.ModelId3;
+                document.getElementById("EditKartela3").value = this.KartelaId3;
+                document.getElementById("HiddenKartelaProductId3").value = this.KartelaModelId3;
+                document.getElementById("EditCila3").value = this.Cila3;
+                document.getElementById("Description3").value = this.Description3;
+
+                document.getElementById("Product4").value = this.ProductId4;
+                document.getElementById("HiddenModelId4").value = this.ModelId4;
+                document.getElementById("EditKartela4").value = this.KartelaId4;
+                document.getElementById("HiddenKartelaProductId4").value = this.KartelaModelId4;
+                document.getElementById("EditCila4").value = this.Cila4;
+                document.getElementById("Description4").value = this.Description4;
+
+                document.getElementById("EditTotalPrice").value = this.TotalPrice;
+                document.getElementById("OrderId").value = this.Id;
+            })
+        }
+    })
+}
+
+function UpdateOrder() {
+    var CustomerId = $("#SelectCustomer").val();
+    var Id = $("#OrderId").val();
+    var StartDate = $("#OrderDate").val();
+    var FinishDate = $("#LastOrderDateEdit").val();
+
+    var ProductId = $("#Product").val();
+    var ModelId = $("#HiddenModelId").val();
+    var KartelaId = $("#Kartela").val();
+    var KartelaModelId = $("#HiddenKartelaProductId").val();
+    var Cila = $("#Cila").val();
+    var Description = $("#Description").val();
+
+
+    var ProductId2 = $("#Product2").val();
+    var ModelId2 = $("#HiddenModelId2").val();
+    var KartelaId2 = $("#EditKartela2").val();
+    var KartelaModelId2 = $("#HiddenKartelaProductId2").val();
+    var Cila2 = $("#EditCila2").val();
+    var Description2 = $("#Description2").val();
+
+    var ProductId3 = $("#Product3").val();
+    var ModelId3 = $("#HiddenModelId3").val();
+    var KartelaId3 = $("#EditKartela3").val();
+    var KartelaModelId3 = $("#HiddenKartelaProductId3").val();
+    var Cila3 = $("#EditCila3").val();
+    var Description3 = $("#Description3").val();
+
+    var ProductId4 = $("#Product4").val();
+    var ModelId4 = $("#HiddenModelId4").val();
+    var KartelaId4 = $("#EditKartela4").val();
+    var KartelaModelId4 = $("#HiddenKartelaProductId4").val();
+    var Cila4 = $("#EditCila4").val();
+    var Description4 = $("#Description4").val();
+    
+    var TotalPrice = $("#EditTotalPrice").val();
+
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '/Order/OrderUpdate',
+        data: {
+            CustomerId: CustomerId, Id: Id, StartDate: StartDate, FinishDate: FinishDate,
+            ProductId: ProductId, ModelId: ModelId, KartelaId: KartelaId, KartelaModelId: KartelaModelId, Cila: Cila, Description: Description,
+            ProductId2: ProductId2, ModelId2: ModelId2, KartelaId2: KartelaId2, KartelaModelId2: KartelaModelId2, Cila2: Cila2, Description2: Description2,
+            ProductId3: ProductId3, ModelId3: ModelId3, KartelaId3: KartelaId3, KartelaModelId3: KartelaModelId3, Cila3: Cila3, Description3: Description3,
+            ProductId4: ProductId4, ModelId4: ModelId4, KartelaId4: KartelaId4, KartelaModelId4: KartelaModelId4, Cila4: Cila4, Description4: Description4,
+            TotalPrice: TotalPrice
+        },
+        success: function (data) {
+            alert("Güncelleme işlemi gerçekleştirildi");
+            location.reload();
+        },
+        error: function (xhr) {
+            alert("İşlem Başarısız");
+        }
+    })
+}
+
 
 
 function printDiv(divName) {

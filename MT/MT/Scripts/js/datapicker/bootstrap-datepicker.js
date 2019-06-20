@@ -1418,13 +1418,13 @@
 	$.fn.datepicker.Constructor = Datepicker;
 	var dates = $.fn.datepicker.dates = {
 		en: {
-			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-			today: "Today",
-			clear: "Clear"
+			days: ["Pazar", "Pazartesi", "Salý", "Çarþamba", "Perþembe", "Cuma", "Cumartesi", "Pazar"],
+			daysShort: ["Pzr", "Pztsi", "Sali", "Crsmba", "Prsmbe", "Cm", "Ctesi", "Pzr"],
+			daysMin: ["Pz", "Pztsi", "Sali", "Crsmba", "Prsmbe", "Cm", "Ctesi", "Pzr"],
+			months: ["Ocak", "Þubat", "Mart", "Nisan", "Mayýs", "Hazrian", "Temmuz", "Aðustos", "Eylül", "Ekim", "Kasým", "Aralýk"],
+			monthsShort: ["Aralýk", "Ocak", "Þubat","Mart" ,"Nisan", "Mayýs", "Hazrian", "Temmuz", "Aðustos", "Eylül", "Ekim", "Kasým"],
+			today: "Bügün",
+			clear: "Temizle"
 		}
 	};
 

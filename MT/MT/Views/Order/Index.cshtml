@@ -16,8 +16,8 @@
                             <tr>
                                 <th>Ad Soyad</th>
                                 <th>Telefon</th>
-                                <th>Başlangıç Tarihi</th>
-                                <th>Bitiş Tarihi</th>
+                                <th>Sipariş Tarihi</th>
+                                <th>Teslim Tarihi</th>
                                 <th>Fiyat</th>
                                 <th>Kalan</th>
                                 <th>İşlemler</th>
@@ -191,14 +191,291 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade bd-example-modal-xl" id="PageEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><label id="CustomerName"></label> Adlı Müşterinin Sipariş Detay</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="">
+                <table class="table table-condensed table-borderless">
+                    <tr>
+                        <td>Müşteri Seç</td>
+                        <td>
+                            <div class="col-lg-10">
+                                <select class="form-control selectpicker" style="max-width:640px !important;margin-right:15px;" data-live-search="true" id="SelectCustomer"></select>
+                            </div>
+                             <input type="hidden" id="OrderId" />
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sipariş Tarihi</td>
+                        <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy" id="OrderDate" /></td>
+                    </tr>
+                    <tr>
+                        <td>Teslim Tarihi</td>
+                        <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy" id="LastOrderDateEdit" /></td>
+                    </tr>
+                    <tbody id="Urun1">
+                        <tr>
+                            <td>Ürün 1</td>
+                            <td>
+                                <select class="form-control" id="Product" onchange="GetProductModelForOrderPageSelectList()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Model No</td>
+                            <td>
+                                <select class="form-control" id="Model" onchange="setHiddenModelChange()"></select>
+                                <input type="hidden" id="HiddenModelId" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela</td>
+                            <td>
+                                <select class="form-control" id="Kartela" onchange="GetKartelaModelForOrderPageSelectList()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela Model</td>
+                            <td>
+                                <select class="form-control" id="KartelaProduct" onchange="setHiddenKartelaModel()"></select>
+                                <input type="hidden" id="HiddenKartelaProductId" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cila  </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Cila" id="Cila" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Açıklama  </td>
+                            <td>
+                                <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description"></textarea>
+                            </td>
+                        </tr>
+                         
+                    </tbody>
+                    <tbody id="Urun2">
+                        <tr>
+                            <td>Ürün 2</td>
+                            <td>
+                                <select class="form-control" id="Product2" onchange="GetProductModelForEditOrderPageSelectList2()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Model No 2</td>
+                            <td>
+                                <select class="form-control" id="EditModel2" onchange="setHiddenModelChange2()"></select>
+                                <input type="hidden" id="HiddenModelId2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela</td>
+                            <td>
+                                <select class="form-control" id="EditKartela2" onchange="GetKartelaModelForEditOrderPageSelectList2()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela Model</td>
+                            <td>
+                                <select class="form-control" id="EditKartelaProduct2" onchange="setHiddenKartelaModel2()"></select>
+                                <input type="hidden" id="HiddenKartelaProductId2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cila  </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Cila" id="EditCila2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Açıklama  </td>
+                            <td>
+                                <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description2"></textarea>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+
+                    <tbody id="Urun3">
+                        <tr>
+                            <td>Ürün 3</td>
+                            <td>
+                                <select class="form-control" id="Product3" onchange="GetProductModelForEditOrderPageSelectList3()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Model No</td>
+                            <td>
+                                <select class="form-control" id="EditModel3" onchange="setHiddenModelChange3()"></select>
+                                <input type="hidden" id="HiddenModelId3" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela</td>
+                            <td>
+                                <select class="form-control" id="EditKartela3" onchange="GetKartelaModelForEditOrderPageSelectList3()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela Model</td>
+                            <td>
+                                <select class="form-control" id="EditKartelaProduct3" onchange="setHiddenKartelaModel3()"></select>
+                                <input type="hidden" id="HiddenKartelaProductId3" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cila  </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Cila" id="EditCila3" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Açıklama  </td>
+                            <td>
+                                <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description3"></textarea>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                    <tbody id="Urun4">
+                        <tr>
+                            <td>Ürün 4</td>
+                            <td>
+                                <select class="form-control" id="Product4" onchange="GetProductModelForOrderPageSelectList4()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Model No</td>
+                            <td>
+                                <select class="form-control" id="EditModel4" onchange="setHiddenModelChange4()"></select>
+                                <input type="hidden" id="HiddenModelId4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela</td>
+                            <td>
+                                <select class="form-control" id="EditKartela4" onchange="GetKartelaModelForEditOrderPageSelectList4()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kartela Model</td>
+                            <td>
+                                <select class="form-control" id="EditKartelaProduct4" onchange="setHiddenKartelaModel4()"></select>
+                                <input type="hidden" id="HiddenKartelaProductId4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cila  </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Cila" id="EditCila4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Açıklama  </td>
+                            <td>
+                                <textarea class="form-control" rows="4" placeholder="Açıklama Giriniz" id="Description4"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tr>
+                        <td>Ürün Tutarı</td>
+                        <td><input class="form-control" type="text" placeholder="0 TL" id="EditTotalPrice" /> </td>
+                    </tr>
+                    
+                     
+                    
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="UpdateOrder()">Güncelle</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">İptal</button>
+
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
         $(document).ready(function () {
             
-
+            GetCustomerForOrderPageSelectList();
             FirstLoginPageOrderList();
+
+            $("#OrderDate").datepicker({
+
+                autoclose: true,
+                todayHighlight: true,
+                todayHighlight: true,
+                dateFormat: 'dd/mm/yyyy',
+                language: 'tr'
+            }).datepicker('update', new Date());
+
+            $("#LastOrderDateEdit").datepicker({
+                todayHighlight: true,
+                dateFormat: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                language: 'tr'
+            }).datepicker();
+
+            ProductListForOrderPageSelectList();
+            ProductListForOrderPageSelectList2();
+            ProductListForOrderPageSelectList3();
+            ProductListForOrderPageSelectList4();
+
+            GetKartelaForOrderPageSelectList();
+            GetKartelaForOrderPageSelectList2();
+            GetKartelaForOrderPageSelectList3();
+            GetKartelaForOrderPageSelectList4();
+
+            GetKartelaForEditOrderPageSelectList2();
+            GetKartelaForOrderEditPageSelectList3();
+            GetKartelaForOrderEditPageSelectList4();
+            $("#Price").change(function () {
+                $("#lblFiyat").text($("#Price").val());
+            })
+            $("#Kapora").change(function () {
+                var toplam = $("#Price").val();
+                var kap = $("#Kapora").val();
+                $("#lblKapora").text(toplam - kap);
+            })
         });
         function reloadPage() {
             location.reload();
+        }
+
+        function setHiddenModelChange() {
+            document.getElementById("HiddenModelId").value = $("#Model").val();
+        }
+        function setHiddenModelChange2() {
+            document.getElementById("HiddenModelId2").value = $("#EditModel2").val();
+        }
+        function setHiddenModelChange3() {
+            document.getElementById("HiddenModelId3").value = $("#EditModel3").val();
+        }
+        function setHiddenModelChange4() {
+            document.getElementById("HiddenModelId4").value = $("#EditModel4").val();
+        }
+        function setHiddenKartelaModel() {
+            document.getElementById("HiddenKartelaProductId").value = $("#KartelaProduct").val();
+        }
+        function setHiddenKartelaModel2() {
+            document.getElementById("HiddenKartelaProductId2").value = $("#EditKartelaProduct2").val();
+        }
+        function setHiddenKartelaModel3() {
+            document.getElementById("HiddenKartelaProductId3").value = $("#EditKartelaProduct3").val();
+        }
+        function setHiddenKartelaModel4() {
+            document.getElementById("HiddenKartelaProductId4").value = $("#EditKartelaProduct4").val();
         }
 </script>
 

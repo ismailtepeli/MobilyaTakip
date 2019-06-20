@@ -35,6 +35,7 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
+                
                 var users = (from x in db.Users select x).ToList();
                 return users;
             }
@@ -91,6 +92,17 @@ namespace MT.Models
             catch (Exception ex)
             {
                 return 0;
+            }
+        }
+
+        public static List<User> GetUserLogin(User user)
+        {
+            using (var db=new MTSEntities())
+            {
+                var getuser = (from x in db.Users
+                               where x.Email == user.Email && x.Password == user.Password
+                               select x).ToList();
+                return getuser;
             }
         }
     }

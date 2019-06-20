@@ -70,5 +70,21 @@ namespace MT.Controllers
             var result = OrderModel.OrderDetail(Id);
             return JsonConvert.SerializeObject(result);
         }
+        public string OrderDelete(int Id)
+        {
+            var result = OrderModel.Delete(Id);
+            return JsonConvert.SerializeObject(result);
+        }
+
+        public string OrderEdit(int Id)
+        {
+            var result = OrderModel.Edit(Id);
+            return JsonConvert.SerializeObject(result);
+        }
+        public string OrderUpdate(Order order)
+        {
+            var result = OrderModel.Update(order);
+            return JsonConvert.SerializeObject(result);
+        }
     }
 }

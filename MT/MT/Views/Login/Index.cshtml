@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <aside>
+            <div class="col-lg-12 Logo">
+                <h3>Proje Logo</h3>
+            </div>
+            <div class="col-lg-12 LoginForm">
+@if (Session["UserName"] == null)
+{
+    using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+                <table class="table table-borderless">
+                    <tr>
+
+                        <td>
+                            <div class="form-group">
+                                <label>     <b>Kullanıcı Adı :</b></label><input type="text" class="form-control" placeholder="Kullanıcı Adını giriniz" name="Email" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label><b> Şifre :</b></label>
+                                <input type="password" class="form-control" placeholder="Kullanıcı Adını giriniz" name="Password" /><a href="javascript:void(0);"><i class="fas fa-eye"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <button type="submit" class="btn  btn-success btn-block">Giriş Yap</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+    }
+}
+            </div>
+            <div class="col-lg-12 SocialMedia">
+                <ul>
+                    <li><a href="#"><i class="fab fa-2x fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-2x fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-2x fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fab fa-2x  fa-instagram"></i></a></li>
+
+                </ul><br /><br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit </p>
+                <div class="col-lg-12 BussinesLogo">
+                    <h3>Şirket Logo</h3>
+                </div>
+            </div>
+        </aside>
+        <section>
+            <div class="col-lg-4 NewsArea">
+                <h3 class="NewsTitle">Güncel Haberler</h3>
+                <div class="col-lg-12 NewsContent" id="News">
+                    <div class="media" style="border-bottom:1px solid #ddd;">
+                        <div class="media-left media-middle" style="margin-right:10px;">
+                            <a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank">
+                                <img class="media-object thumbnail" width="64" height="64" src="http://i.milliyet.com.tr/YeniAnaResim/2019/05/13/fft99_mf13816248.Jpeg" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body" style="margin-bottom:15px; width:350px;padding-right:10px;">
+                            <h5 class="media-heading"><a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank" style="color:#446379"> D&#252;nya devine b&#252;y&#252;k şok! Milyonlarca kişi dava a&#231;abilir </a></h5>
+                            <h7>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar orci euismod finibus varius. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                            </h7>
+                        </div>
+                    </div>
+                    <div class="media" style="border-bottom:1px solid #ddd;">
+                        <div class="media-left media-middle" style="margin-right:10px;">
+                            <a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank">
+                                <img class="media-object thumbnail" width="64" height="64" src="http://i.milliyet.com.tr/YeniAnaResim/2019/05/13/fft99_mf13816248.Jpeg" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body" style="margin-bottom:15px; width:350px;padding-right:10px;">
+                            <h5 class="media-heading"><a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank" style="color:#446379"> D&#252;nya devine b&#252;y&#252;k şok! Milyonlarca kişi dava a&#231;abilir </a></h5>
+                            <h7>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar orci euismod finibus varius. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                            </h7>
+                        </div>
+                    </div>
+                    <div class="media" style="border-bottom:1px solid #ddd;">
+                        <div class="media-left media-middle" style="margin-right:10px;">
+                            <a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank">
+                                <img class="media-object thumbnail" width="64" height="64" src="http://i.milliyet.com.tr/YeniAnaResim/2019/05/13/fft99_mf13816248.Jpeg" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body" style="margin-bottom:15px; width:350px;padding-right:10px;">
+                            <h5 class="media-heading"><a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank" style="color:#446379"> D&#252;nya devine b&#252;y&#252;k şok! Milyonlarca kişi dava a&#231;abilir </a></h5>
+                            <h7>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar orci euismod finibus varius. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                            </h7>
+                        </div>
+                    </div>
+                    <div class="media" style="border-bottom:1px solid #ddd;">
+                        <div class="media-left media-middle" style="margin-right:10px;">
+                            <a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank">
+                                <img class="media-object thumbnail" width="64" height="64" src="http://i.milliyet.com.tr/YeniAnaResim/2019/05/13/fft99_mf13816248.Jpeg" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body" style="margin-bottom:15px; width:350px;padding-right:10px;">
+                            <h5 class="media-heading"><a href="http://secure.milliyet.com.tr/redirect/Default.aspx?l=http%3a%2f%2fwww.milliyet.com.tr%2fdunya-devine-buyuk-sok--ekonomi-2873330%2f%3futm_source%3drss%26amp%3butm_medium%3dmilliyetekonomirss" target="_blank" style="color:#446379"> D&#252;nya devine b&#252;y&#252;k şok! Milyonlarca kişi dava a&#231;abilir </a></h5>
+                            <h7>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar orci euismod finibus varius. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                            </h7>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script>
+
+        window.setInterval(scrollit, 2000);
+
+        function scrollit() {
+            var scrollingUp = 0;
+            var dontScroll = 0;
+                    if (dontScroll == 0) {
+                        if ($('#News').scrollTop() + $('#News').innerHeight() >= $('#News')[0].scrollHeight) {
+                            scrollingUp = 1;
+                            $('#News').animate({ scrollTop: 0 }, 1000, function () {
+                                scrollingUp = 0;
+                            });
+                        } else if (scrollingUp == 0) {
+                            $('#News').animate({ scrollTop: $("#News").scrollTop() + 50 }, 'slow');
+                        }
+                    }
+                }
+</script>
+
