@@ -707,10 +707,10 @@ function GetProductModelForOrderPageSelectList4() {
         url: '/Order/ProdocutForModel',
         data: { ProductId: ProductId },
         success: function (data) {
-            $("#EditModel4").html("");
-            $("#EditModel4").append("<option value='0' selected disabled>3. Model Seçiniz</option>");
+            $("#Model4").html("");
+            $("#Model4").append("<option value='0' selected disabled>4. Model Seçiniz</option>");
             $.each(data, function () {
-                $("#EditModel4").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
+                $("#Model4").append("<option value='" + this.Id + "'>" + this.ModelName + "</option>");
             })
         }
     })
@@ -740,8 +740,9 @@ function GetKartelaForOrderPageSelectList() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#Kartela").append("<option value='0'  selected disabled> Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#Kartela").append("<option value='0'  selected disabled> Kartela Seçiniz</option>");
+              
                 $("#Kartela").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -757,8 +758,9 @@ function GetKartelaForOrderPageSelectList2() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#Kartela2").append("<option value='0'  selected disabled>2. Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#Kartela2").append("<option value='0'  selected disabled>2. Kartela Seçiniz</option>");
+              
                 $("#Kartela2").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -774,8 +776,9 @@ function GetKartelaForEditOrderPageSelectList2() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#EditKartela2").append("<option value='0'  selected disabled>2. Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#EditKartela2").append("<option value='0'  selected disabled>2. Kartela Seçiniz</option>");
+               
                 $("#EditKartela2").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -791,8 +794,9 @@ function GetKartelaForOrderPageSelectList3() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#Kartela3").append("<option value='0'  selected disabled>3. Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#Kartela3").append("<option value='0'  selected disabled>3. Kartela Seçiniz</option>");
+               
                 $("#Kartela3").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -809,8 +813,9 @@ function GetKartelaForOrderEditPageSelectList3() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#EditKartela3").append("<option value='0'  selected disabled>3. Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#EditKartela3").append("<option value='0'  selected disabled>3. Kartela Seçiniz</option>");
+            
                 $("#EditKartela3").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -826,8 +831,9 @@ function GetKartelaForOrderPageSelectList4() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#Kartela4").append("<option value='0'  selected disabled>4. Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#Kartela4").append("<option value='0'  selected disabled>4. Kartela Seçiniz</option>");
+             
                 $("#Kartela4").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -843,8 +849,9 @@ function GetKartelaForOrderEditPageSelectList4() {
         dataType: 'json',
         url: '/Order/KartelaList',
         success: function (data) {
+            $("#EditKartela4").append("<option value='0'  selected disabled>4. Kartela Seçiniz</option>");
             $.each(data, function () {
-                $("#EditKartela4").append("<option value='0'  selected disabled>4. Kartela Seçiniz</option>");
+              
                 $("#EditKartela4").append(
                         "<option value='" + this.Id + "'>" + this.KartelaName + "</option>"
                     )
@@ -983,7 +990,7 @@ function GetKartelaModelForEditOrderPageSelectList4() {
 }
 
 function CreateOrder() {
-
+   
     var CustomerId = $("#SelectCustomer").val();
     var StartDate = $("#OrderDate").val();
     var FinishDate = $("#LastOrderDate").val();
@@ -1046,36 +1053,48 @@ function CreateOrder() {
     if ($("#PaymentCek").is(":checked")) {
         PaymentType += " " + $("#PaymentCek").val();
     }
+    debugger
+    var x = Date.parse(this.StartDate)
+    if (StartDate<FinishDate) {
+        alert("Teslim Tarihi Sipariş Tarihinden önce olamaz !!")
+    }
+    else {
+        if (StartDate != null && FinishDate != null && ProductId != null && ModelId != null && KartelaId != null && KartelaModelId != null) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/Order/orderAdd',
+                data: {
+                    StartDate: StartDate, FinishDate: FinishDate, ProductId: ProductId, ModelId: ModelId, KartelaId: KartelaId,
+                    KartelaModelId: KartelaModelId, Cila: Cila, Description: Description,
 
+                    ProductId2: ProductId2, ModelId2: ModelId2, KartelaId2: KartelaId2,
+                    KartelaModelId2: KartelaModelId2, Cila2: Cila2, Description2: Description2,
 
-    $.ajax({
-        type: 'post',
-        dataType: 'json',
-        url: '/Order/orderAdd',
-        data: {
-            StartDate: StartDate, FinishDate: FinishDate, ProductId: ProductId, ModelId: ModelId, KartelaId: KartelaId,
-            KartelaModelId: KartelaModelId, Cila: Cila, Description: Description,
+                    ProductId3: ProductId3, ModelId3: ModelId3, KartelaId3: KartelaId3,
+                    KartelaModelId3: KartelaModelId3, Cila3: Cila3, Description3: Description3,
 
-            ProductId2: ProductId2, ModelId2: ModelId2, KartelaId2: KartelaId2,
-            KartelaModelId2: KartelaModelId2, Cila2: Cila2, Description2: Description2,
+                    ProductId4: ProductId4, ModelId4: ModelId4, KartelaId4: KartelaId4,
+                    KartelaModelId4: KartelaModelId4, Cila4: Cila4, Description4: Description4,
 
-            ProductId3: ProductId3, ModelId3: ModelId3, KartelaId3: KartelaId3,
-            KartelaModelId3: KartelaModelId3, Cila3: Cila3, Description3: Description3,
+                    TotalPrice: TotalPrice, KaporaPrice: KaporaPrice, CustomerId: CustomerId,
 
-            ProductId4: ProductId4, ModelId4: ModelId4, KartelaId4: KartelaId4,
-            KartelaModelId4: KartelaModelId4, Cila4: Cila4, Description4: Description4,
-
-            TotalPrice: TotalPrice, KaporaPrice: KaporaPrice, CustomerId: CustomerId,
-
-            PaymentType: PaymentType, KaporaType: KaporaType
-        },
-        success: function (data) {
-            alert("Sipariş Oluşturuldu"); location.reload();
-        },
-        error: function (xhr) {
-            alert("işlem başarısız !!");
+                    PaymentType: PaymentType, KaporaType: KaporaType
+                },
+                success: function (data) {
+                    alert("Sipariş Oluşturuldu"); location.reload();
+                },
+                error: function (xhr) {
+                    alert("işlem başarısız !!");
+                }
+            })
         }
-    })
+        else {
+            alert("ilk ürün kısmı boş geçilemez !!  ")
+        }
+    }
+  
+
 }
 
 
@@ -1086,18 +1105,20 @@ function FirstLoginPageOrderList() {
         url: '/Order/FirstLoginOrderList',
         success: function (data) {
             $.each(data, function () {
-                
+
                 var kalan = this.TotalPrice - this.KaporaPrice;
-                var date = new Date('"' + this.StartDate.substring(0, 11) + '"');
+                //'"' + this.StartDate.substring(0, 11) + '"'
+                var x = Date.parse(this.StartDate);
+                var date = new Date(this.StartDate);
                 var dateF = new Date('"' + this.FinishDate.substring(0, 11) + '"');
                 date.toDateString();
-                var x = date;
+
                 $("#OrderTable").append(
                     "<tr>"
                     + "<td>" + this.NameSurname + "</td>"
                     + "<td>" + this.Phone1 + "</td>"
-                    + "<td>" + date.toLocaleDateString() + "</td>"
-                    + "<td>" + dateF.toLocaleDateString() + "</td>"
+                    + "<td>" + ConvertToDate(this.StartDate) + "</td>"
+                    + "<td>" + ConvertToDate(this.FinishDate) + "</td>"
                               + "<td>" + this.TotalPrice + "</td>"
                     + "<td>" + kalan + "</td>"
 
@@ -1111,7 +1132,209 @@ function FirstLoginPageOrderList() {
     })
 }
 
+function ConvertToDate(d) {
+    
+    var date = d.substring(0, 11);
+    var SpaceCount = date.split(" ").length;
+    if (SpaceCount>3) {
+        date = date.replace("  ", "/").replace(" ", "/");
+    } else {
+        date = date.replace(" ", "/").replace(" ", "/");
+    }
+    
+    if (date.includes("Haz")) {
+        date = date.replace("Haz", "6");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
 
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Tem")) {
+        date = date.replace("Tem", "7");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Agu")) {
+        date = date.replace("Agu", "8");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Eyl")) {
+        date = date.replace("Eyl", "9");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Eki")) {
+        date = date.replace("Eki", "10");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Kas")) {
+        date = date.replace("Kas", "11");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Ara")) {
+        date = date.replace("Ara", "12");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Oca")) {
+        date = date.replace("Oca", "1");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Şub")) {
+        date = date.replace("Şub", "2");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Mar")) {
+        date = date.replace("Mar", "3");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("Nis")) {
+        date = date.replace("Nis", "4");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+    if (date.includes("May")) {
+        date = date.replace("May", "4");
+        if (date.length == 9) {
+            var ay = date.substring(0, 2);
+            var gun = date.substring(2, 5);
+            var yil = date.substring(5, 9);
+            date = gun + ay + yil;
+
+        } else if (date.length > 9) {
+            var ay = date.substring(0, 3);
+            var gun = date.substring(3, 6);
+            var yil = date.substring(6, 10);
+            date = gun + ay + yil;
+        }
+        return date;
+    }
+}
 
 
 function OrderDetail(Id) {
@@ -1121,7 +1344,9 @@ function OrderDetail(Id) {
         url: '/Order/OrderDetail',
         data: { Id: Id },
         success: function (data) {
+            
             $.each(data, function () {
+                 
                 $("#CustomerName").text(this.NameSurname),
                 $("#NameSurname").text(this.NameSurname),
                 $("#Phone1").text(this.Phone1),
@@ -1155,14 +1380,14 @@ function OrderDetail(Id) {
                 $("#Cila4").text(this.Cila4),
                 $("#Aciklama4").text(this.Description4),
                 $("#KapFiyat").text(this.KaporaPrice + " TL - " + this.KaporaType),
-                $("#TotalFiyat").text(this.TotalPrice + " TL")
-                var date = new Date('"' + this.StartDate.substring(0, 11) + '"');
-                var dateF = new Date('"' + this.FinishDate.substring(0, 11) + '"');
-                $("#StartDate").text(date.toLocaleDateString())
-                $("#FinishDate").text(dateF.toLocaleDateString())
+                $("#TotalFiyat").text(this.TotalPrice + " TL ")
+                
+                $("#StartDate").text(ConvertToDate(this.StartDate.substring(0, 11)))
+                $("#FinishDate").text(ConvertToDate(this.FinishDate.substring(0, 11)))
 
                 var kalanTutar = this.TotalPrice - this.KaporaPrice;
-                $("#TotalKalan").text(kalanTutar + " TL")
+                $("#TotalKalan").text(kalanTutar + " TL -" + this.PaymentType);
+            
 
             })
         }
@@ -1195,7 +1420,7 @@ function OrderEdit(Id) {
         data: { Id: Id },
         success: function (data) {
             $.each(data, function () {
-                 
+
                 var date = new Date('"' + this.StartDate.substring(0, 11) + '"');
                 var dateF = new Date('"' + this.FinishDate.substring(0, 11) + '"');
                 document.getElementById("SelectCustomer").value = this.CustomerId;
@@ -1272,7 +1497,7 @@ function UpdateOrder() {
     var KartelaModelId4 = $("#HiddenKartelaProductId4").val();
     var Cila4 = $("#EditCila4").val();
     var Description4 = $("#Description4").val();
-    
+
     var TotalPrice = $("#EditTotalPrice").val();
 
     $.ajax({
@@ -1305,4 +1530,20 @@ function printDiv(divName) {
     document.body.innerHTML = printContents;
     window.print();
     document.body.innerHTML = originalContents;
+}
+
+function OnlyNumber() {
+     
+    $("#Price").on("keypress keyup blur", function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+    $("#Kapora").on("keypress keyup blur", function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
 }

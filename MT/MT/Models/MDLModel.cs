@@ -19,7 +19,7 @@ namespace MT.Models
                         ProductId = model.ProductId,
                         ModelName = model.ModelName
                     };
-                    db.tblModels.Add(temp);
+                    db.tblModel.Add(temp);
                     db.SaveChanges();
                     return 1;
                 }
@@ -33,8 +33,8 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                var models = (from x in db.tblModels
-                              join p in db.Products on x.ProductId equals p.Id
+                var models = (from x in db.tblModel
+                              join p in db.Product on x.ProductId equals p.Id
                               select new ModelProduct
                               {
                                   ProductName = p.ProductName,
@@ -51,7 +51,7 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                var model = (from x in db.tblModels where x.Id == Id select x).ToList();
+                var model = (from x in db.tblModel where x.Id == Id select x).ToList();
                 return model;
             }
         }
@@ -61,7 +61,7 @@ namespace MT.Models
             {
                 using (var db = new MTSEntities())
                 {
-                    tblModel temp = db.tblModels.SingleOrDefault(x => x.Id == model.Id);
+                    tblModel temp = db.tblModel.SingleOrDefault(x => x.Id == model.Id);
                     temp.ModelName = model.ModelName;
                     temp.ProductId = model.ProductId;
                     db.SaveChanges();
@@ -79,10 +79,10 @@ namespace MT.Models
             {
                 using (var db = new MTSEntities())
                 {
-                    var tempRemove = db.tblModels.SingleOrDefault(x => x.Id == Id);
+                    var tempRemove = db.tblModel.SingleOrDefault(x => x.Id == Id);
                     if (tempRemove != null)
                     {
-                        db.tblModels.Remove(tempRemove);
+                        db.tblModel.Remove(tempRemove);
                         db.SaveChanges();
                         return 1;
                     }
@@ -102,7 +102,7 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                var productForModel = (from x in db.tblModels where x.ProductId == ProductId select x).ToList();
+                var productForModel = (from x in db.tblModel where x.ProductId == ProductId select x).ToList();
                 return productForModel;
             }
         }

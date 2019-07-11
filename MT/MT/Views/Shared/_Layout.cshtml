@@ -64,14 +64,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <link href="~/Content/css/bootstrap-select/bootstrap-select.css" rel="stylesheet" />
+    
 
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script>
+ 
     <script src="~/Scripts/js/datapicker/bootstrap-datepicker.js"></script>
     <script src="~/Scripts/js/datapicker/datepicker-active.js"></script>
     <script src="~/Scripts/MyLib/MtsLib.js"></script>
@@ -100,7 +97,7 @@
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
                                 <li>
-                                    <a data-toggle="collapse" data-target="#Charts" href="/Home/Index">Anasayfa</a>
+                                    <a  href="/Home/Index">Anasayfa</a>
 
                                 </li>
                                 <li>
@@ -135,7 +132,7 @@
                                     <a data-toggle="collapse" data-target="#Kumas" href="#">Kartela</a>
                                     <ul id="demodepart" class="collapse dropdown-header-top">
                                         <li><a href="/Catalog/Index">Kartela Listesi</a></li>
-                                        <li><a href="/CatalogL/AddCatalog">Kartela Ekle</a></li>
+                                        <li><a href="/Catalog/AddCatalog">Kartela Ekle</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -159,8 +156,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li class="active">
-                            <a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Anasayfa</a>
+                        <li >
+                            <a href="/Home/Index"><i class="notika-icon notika-house"></i> Anasayfa</a>
                         </li>
                         <li>
                             <a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-mail"></i> Kullanıcı </a>
@@ -177,9 +174,7 @@
                         <li>
                             <a data-toggle="tab" href="#Kumas"><i class="notika-icon notika-windows"></i> Kartela</a>
                         </li>
-                        <li>
-                            <a data-toggle="tab" href="#Kp"><i class="notika-icon notika-windows"></i> Kartela Ürünü</a>
-                        </li>
+                        
                     </ul>
                     <div class="tab-content custom-menu-content">
                         <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
@@ -231,13 +226,13 @@
                         <div id="Kumas" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="/CatalogL/AddCatalog">Kartela Ekle</a>
+                                    <a href="/Catalog/AddCatalog">Kartela Ekle</a>
                                 </li>
                                 <li>
-                                    <a href="/Catalog/Index">Kartela List</a>
+                                    <a href="/Catalog/Index">Kartela Listesi</a>
                                 </li>
                                 <li>
-                                    <a href="/CatalogProduct/Index">Ürün List</a>
+                                    <a href="/CatalogProduct/Index">Ürün Listesi</a>
                                 </li>
                                 <li>
                                     <a href="/CatalogProduct/CatalogProductAdd">Ürün Ekle</a>
@@ -305,6 +300,7 @@
     <!--  todo JS
         ============================================ -->
     <script src="~/Scripts/js/todo/jquery.todo.js"></script>
+    <script src="~/Scripts/js/bootstrap-select/bootstrap-select.js"></script>
     <!-- plugins JS
         ============================================ -->
     <script src="~/Scripts/js/plugins.js"></script>

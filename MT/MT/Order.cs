@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MT.Models.Types
+namespace MT
 {
     using System;
     using System.Collections.Generic;

@@ -1415,16 +1415,20 @@
 		'rtl',
 		'weekStart'
 	];
+	
 	$.fn.datepicker.Constructor = Datepicker;
 	var dates = $.fn.datepicker.dates = {
-		en: {
+
+	    en: {
+           
 			days: ["Pazar", "Pazartesi", "Salý", "Çarþamba", "Perþembe", "Cuma", "Cumartesi", "Pazar"],
 			daysShort: ["Pzr", "Pztsi", "Sali", "Crsmba", "Prsmbe", "Cm", "Ctesi", "Pzr"],
 			daysMin: ["Pz", "Pztsi", "Sali", "Crsmba", "Prsmbe", "Cm", "Ctesi", "Pzr"],
 			months: ["Ocak", "Þubat", "Mart", "Nisan", "Mayýs", "Hazrian", "Temmuz", "Aðustos", "Eylül", "Ekim", "Kasým", "Aralýk"],
 			monthsShort: ["Aralýk", "Ocak", "Þubat","Mart" ,"Nisan", "Mayýs", "Hazrian", "Temmuz", "Aðustos", "Eylül", "Ekim", "Kasým"],
 			today: "Bügün",
-			clear: "Temizle"
+		    clear: "Temizle"
+		  
 		}
 	};
 

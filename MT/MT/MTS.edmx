@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MTSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MTSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Id" />
@@ -76,16 +76,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductName" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="tblModel">
           <Key>
             <PropertyRef Name="Id" />
@@ -109,38 +99,24 @@
           <EntitySet Name="KartelaProduct" EntityType="Self.KartelaProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblModel" EntityType="Self.tblModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Product">
+        <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityContainer Name="MTSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Products" EntityType="Self.Product" />
-          <EntitySet Name="tblModels" EntityType="MTSModel.tblModel" />
-          <EntitySet Name="Kartelas" EntityType="MTSModel.Kartela" />
-          <EntitySet Name="KartelaProducts" EntityType="MTSModel.KartelaProduct" />
-          <EntitySet Name="Users" EntityType="MTSModel.User" />
-          <EntitySet Name="Customers" EntityType="MTSModel.Customer" />
-          <EntitySet Name="sysdiagrams" EntityType="MTSModel.sysdiagram" />
-          <EntitySet Name="Orders" EntityType="MTSModel.Order" />
-        </EntityContainer>
-        <EntityType Name="tblModel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductId" Type="Int32" />
-          <Property Name="ModelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NameSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Kartela">
           <Key>
@@ -157,36 +133,6 @@
           <Property Name="KartelaId" Type="Int32" />
           <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="NameSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -225,13 +171,114 @@
           <Property Name="KartelaId3" Type="Int32" />
           <Property Name="KartelaId4" Type="Int32" />
         </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ModelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="MTSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Kartela" EntityType="Self.Kartela" />
+          <EntitySet Name="KartelaProduct" EntityType="Self.KartelaProduct" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="tblModel" EntityType="Self.tblModel" />
+          <EntitySet Name="User" EntityType="Self.User" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MTSModelStoreContainer" CdmEntityContainer="MTSEntities">
-          <EntitySetMapping Name="Products">
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="MTSModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kartela">
+            <EntityTypeMapping TypeName="MTSModel.Kartela">
+              <MappingFragment StoreEntitySet="Kartela">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KartelaName" ColumnName="KartelaName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KartelaProduct">
+            <EntityTypeMapping TypeName="MTSModel.KartelaProduct">
+              <MappingFragment StoreEntitySet="KartelaProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KartelaId" ColumnName="KartelaId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="MTSModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+                <ScalarProperty Name="KartelaId" ColumnName="KartelaId" />
+                <ScalarProperty Name="KartelaModelId" ColumnName="KartelaModelId" />
+                <ScalarProperty Name="Cila" ColumnName="Cila" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="KaporaPrice" ColumnName="KaporaPrice" />
+                <ScalarProperty Name="KaporaType" ColumnName="KaporaType" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="ProductId2" ColumnName="ProductId2" />
+                <ScalarProperty Name="ModelId2" ColumnName="ModelId2" />
+                <ScalarProperty Name="KartelaModelId2" ColumnName="KartelaModelId2" />
+                <ScalarProperty Name="Cila2" ColumnName="Cila2" />
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
+                <ScalarProperty Name="ProductId3" ColumnName="ProductId3" />
+                <ScalarProperty Name="ModelId3" ColumnName="ModelId3" />
+                <ScalarProperty Name="KartelaModelId3" ColumnName="KartelaModelId3" />
+                <ScalarProperty Name="Cila3" ColumnName="Cila3" />
+                <ScalarProperty Name="Description3" ColumnName="Description3" />
+                <ScalarProperty Name="ProductId4" ColumnName="ProductId4" />
+                <ScalarProperty Name="ModelId4" ColumnName="ModelId4" />
+                <ScalarProperty Name="KartelaModelId4" ColumnName="KartelaModelId4" />
+                <ScalarProperty Name="Cila4" ColumnName="Cila4" />
+                <ScalarProperty Name="Description4" ColumnName="Description4" />
+                <ScalarProperty Name="KartelaId2" ColumnName="KartelaId2" />
+                <ScalarProperty Name="KartelaId3" ColumnName="KartelaId3" />
+                <ScalarProperty Name="KartelaId4" ColumnName="KartelaId4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="MTSModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -239,101 +286,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblModels">
+          <EntitySetMapping Name="tblModel">
             <EntityTypeMapping TypeName="MTSModel.tblModel">
               <MappingFragment StoreEntitySet="tblModel">
-                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kartelas">
-            <EntityTypeMapping TypeName="MTSModel.Kartela">
-              <MappingFragment StoreEntitySet="Kartela">
-                <ScalarProperty Name="KartelaName" ColumnName="KartelaName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KartelaProducts">
-            <EntityTypeMapping TypeName="MTSModel.KartelaProduct">
-              <MappingFragment StoreEntitySet="KartelaProduct">
-                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="KartelaId" ColumnName="KartelaId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
+          <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="MTSModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="MTSModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
-                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MTSModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="MTSModel.Order">
-              <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="KartelaId4" ColumnName="KartelaId4" />
-                <ScalarProperty Name="KartelaId3" ColumnName="KartelaId3" />
-                <ScalarProperty Name="KartelaId2" ColumnName="KartelaId2" />
-                <ScalarProperty Name="Description4" ColumnName="Description4" />
-                <ScalarProperty Name="Cila4" ColumnName="Cila4" />
-                <ScalarProperty Name="KartelaModelId4" ColumnName="KartelaModelId4" />
-                <ScalarProperty Name="ModelId4" ColumnName="ModelId4" />
-                <ScalarProperty Name="ProductId4" ColumnName="ProductId4" />
-                <ScalarProperty Name="Description3" ColumnName="Description3" />
-                <ScalarProperty Name="Cila3" ColumnName="Cila3" />
-                <ScalarProperty Name="KartelaModelId3" ColumnName="KartelaModelId3" />
-                <ScalarProperty Name="ModelId3" ColumnName="ModelId3" />
-                <ScalarProperty Name="ProductId3" ColumnName="ProductId3" />
-                <ScalarProperty Name="Description2" ColumnName="Description2" />
-                <ScalarProperty Name="Cila2" ColumnName="Cila2" />
-                <ScalarProperty Name="KartelaModelId2" ColumnName="KartelaModelId2" />
-                <ScalarProperty Name="ModelId2" ColumnName="ModelId2" />
-                <ScalarProperty Name="ProductId2" ColumnName="ProductId2" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-                <ScalarProperty Name="KaporaType" ColumnName="KaporaType" />
-                <ScalarProperty Name="KaporaPrice" ColumnName="KaporaPrice" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Cila" ColumnName="Cila" />
-                <ScalarProperty Name="KartelaModelId" ColumnName="KartelaModelId" />
-                <ScalarProperty Name="KartelaId" ColumnName="KartelaId" />
-                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -351,8 +319,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

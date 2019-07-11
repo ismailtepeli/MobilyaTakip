@@ -57,7 +57,7 @@ namespace MT.Models
                         PaymentType = order.PaymentType,
 
                     };
-                    db.Orders.Add(item);
+                    db.Order.Add(item);
                     db.SaveChanges();
                     return 1;
                 }
@@ -74,8 +74,8 @@ namespace MT.Models
             using (var db = new MTSEntities())
             {
                
-                var orderList = (from order in db.Orders
-                                 join customer in db.Customers on order.CustomerId equals customer.Id
+                var orderList = (from order in db.Order
+                                 join customer in db.Customer on order.CustomerId equals customer.Id
 
                                  select new OrderCustomerProduct
                                  {
@@ -100,77 +100,77 @@ namespace MT.Models
             {
 
                 #region asdasdas
-                var detail = (from order in db.Orders
-                              join customer in db.Customers on order.CustomerId equals customer.Id
+                var detail = (from order in db.Order
+                              join customer in db.Customer on order.CustomerId equals customer.Id
                               into customerNull
                               from CCNull in customerNull.DefaultIfEmpty()
 
-                              join product in db.Products on order.ProductId equals product.Id
+                              join product in db.Product on order.ProductId equals product.Id
                               into productNull
                               from ppNull in productNull.DefaultIfEmpty()
 
-                              join model in db.tblModels on order.ModelId equals model.Id
+                              join model in db.tblModel on order.ModelId equals model.Id
                                into modelNull
                               from mdlNull in modelNull.DefaultIfEmpty()
 
-                              join kartela in db.Kartelas on order.KartelaId equals kartela.Id
+                              join kartela in db.Kartela on order.KartelaId equals kartela.Id
                                  into KartelaNull
                               from KNull in KartelaNull.DefaultIfEmpty()
 
-                              join kartelaModel in db.KartelaProducts on order.KartelaModelId equals kartelaModel.Id
+                              join kartelaModel in db.KartelaProduct on order.KartelaModelId equals kartelaModel.Id
                                into KmodelNull
                               from KMNull in KmodelNull.DefaultIfEmpty()
 
 
 
-                              join product2 in db.Products on order.ProductId2 equals product2.Id
+                              join product2 in db.Product on order.ProductId2 equals product2.Id
                                  into product2Null
                               from ProNull in product2Null.DefaultIfEmpty()
 
-                              join model2 in db.tblModels on order.ModelId2 equals model2.Id
+                              join model2 in db.tblModel on order.ModelId2 equals model2.Id
                                  into model2Null
                               from mdl2Null in model2Null.DefaultIfEmpty()
 
-                              join kartela2 in db.Kartelas on order.KartelaId2 equals kartela2.Id
+                              join kartela2 in db.Kartela on order.KartelaId2 equals kartela2.Id
                                  into kartela2Null
                               from K2Null in kartela2Null.DefaultIfEmpty()
 
-                              join kartelaModel2 in db.KartelaProducts on order.KartelaModelId2 equals kartelaModel2.Id
+                              join kartelaModel2 in db.KartelaProduct on order.KartelaModelId2 equals kartelaModel2.Id
                                 into Kmodel2Null
                               from KM2Null in Kmodel2Null.DefaultIfEmpty()
 
 
-                              join product3 in db.Products on order.ProductId3 equals product3.Id
+                              join product3 in db.Product on order.ProductId3 equals product3.Id
                                 into product3Null
                               from Pro3Null in product3Null.DefaultIfEmpty()
 
-                              join model3 in db.tblModels on order.ModelId3 equals model3.Id
+                              join model3 in db.tblModel on order.ModelId3 equals model3.Id
                                into model3Null
                               from mdl3Null in model3Null.DefaultIfEmpty()
 
-                              join kartela3 in db.Kartelas on order.KartelaId3 equals kartela3.Id
+                              join kartela3 in db.Kartela on order.KartelaId3 equals kartela3.Id
                                into kartela3Null
                               from K3Null in kartela3Null.DefaultIfEmpty()
 
-                              join kartelaModel3 in db.KartelaProducts on order.KartelaModelId3 equals kartelaModel3.Id
+                              join kartelaModel3 in db.KartelaProduct on order.KartelaModelId3 equals kartelaModel3.Id
                                       into Kmodel3Null
                               from KM3Null in Kmodel3Null.DefaultIfEmpty()
 
 
-                              join product4 in db.Products on order.ProductId4 equals product4.Id
+                              join product4 in db.Product on order.ProductId4 equals product4.Id
                                into product4Null
                               from Pro4Null in product4Null.DefaultIfEmpty()
 
-                              join model4 in db.tblModels on order.ModelId4 equals model4.Id
+                              join model4 in db.tblModel on order.ModelId4 equals model4.Id
                                into model4Null
                               from mdl4Null in model4Null.DefaultIfEmpty()
 
-                              join kartela4 in db.Kartelas on order.KartelaId4 equals kartela4.Id
+                              join kartela4 in db.Kartela on order.KartelaId4 equals kartela4.Id
                               into kartela4Null
                               from K4Null in kartela4Null.DefaultIfEmpty()
 
 
-                              join kartelaModel4 in db.KartelaProducts on order.KartelaModelId4 equals kartelaModel4.Id
+                              join kartelaModel4 in db.KartelaProduct on order.KartelaModelId4 equals kartelaModel4.Id
                                        into Kmodel4Null
                               from KM4Null in Kmodel4Null.DefaultIfEmpty()
 
@@ -221,8 +221,9 @@ namespace MT.Models
                                   KaporaPrice = order.KaporaPrice,
                                   StartDate = order.StartDate.ToString(),
                                   FinishDate = order.FinishDate.ToString(),
-                                  KaporaType = order.KaporaType
-
+                                  KaporaType = order.KaporaType,
+                                  PaymentType=order.PaymentType
+                                  
                               }
                             ).ToList();
                 return detail;
@@ -238,10 +239,10 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    var removeTo = db.Orders.SingleOrDefault(x => x.Id == Id);
+                    var removeTo = db.Order.SingleOrDefault(x => x.Id == Id);
                     if (removeTo!=null)
                     {
-                        db.Orders.Remove(removeTo);
+                        db.Order.Remove(removeTo);
                         db.SaveChanges();
                         return 1;
                     }
@@ -262,8 +263,8 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var getOrder = (from order in db.Orders
-                                join customer in db.Customers on order.CustomerId equals customer.Id
+                var getOrder = (from order in db.Order
+                                join customer in db.Customer on order.CustomerId equals customer.Id
                                 where order.Id == Id
                                 select new OrderCustomerProduct
                                 {
@@ -318,7 +319,7 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    Order temp = db.Orders.SingleOrDefault(x => x.Id == order.Id);
+                    Order temp = db.Order.SingleOrDefault(x => x.Id == order.Id);
                     temp.FinishDate = order.FinishDate;
                     temp.StartDate = order.StartDate;
 

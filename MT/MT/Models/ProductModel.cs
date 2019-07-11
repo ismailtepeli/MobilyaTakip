@@ -11,7 +11,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var Produtcs = (from x in db.Products select x).ToList();
+                var Produtcs = (from x in db.Product select x).ToList();
                 return Produtcs;
             }
         }
@@ -19,7 +19,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var Products = (from x in db.Products where x.Id == Id select x).ToList();
+                var Products = (from x in db.Product where x.Id == Id select x).ToList();
                 return Products;
             }
         }
@@ -29,7 +29,7 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    Product temp = db.Products.SingleOrDefault(x => x.Id == product.Id);
+                    Product temp = db.Product.SingleOrDefault(x => x.Id == product.Id);
                     temp.ProductName = product.ProductName;
                     db.SaveChanges();
                     return 1;
@@ -46,10 +46,10 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    var itemToRemove = db.Products.SingleOrDefault(x => x.Id == Id);
+                    var itemToRemove = db.Product.SingleOrDefault(x => x.Id == Id);
                     if (itemToRemove!=null)
                     {
-                        db.Products.Remove(itemToRemove);
+                        db.Product.Remove(itemToRemove);
                         db.SaveChanges();
                         return 1;
                     }
@@ -74,7 +74,7 @@ namespace MT.Models
                     {
                         ProductName = product.ProductName
                     };
-                    db.Products.Add(temp);
+                    db.Product.Add(temp);
                     db.SaveChanges();
                     return 1;
                 }

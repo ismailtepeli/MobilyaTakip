@@ -19,7 +19,7 @@ namespace MT.Models
                         ProductName = kp.ProductName,
                         ProductCode = kp.ProductCode
                     };
-                    db.KartelaProducts.Add(item);
+                    db.KartelaProduct.Add(item);
                     db.SaveChanges();
                     return 1;
                 }
@@ -34,8 +34,8 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                var kp = (from x in db.KartelaProducts
-                          join k in db.Kartelas on x.KartelaId equals k.Id
+                var kp = (from x in db.KartelaProduct
+                          join k in db.Kartela on x.KartelaId equals k.Id
                           select new CatalogProduct
                           {
                               ProductName = x.ProductName,
@@ -52,7 +52,7 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                var model = (from x in db.KartelaProducts where x.Id == Id select x).ToList();
+                var model = (from x in db.KartelaProduct where x.Id == Id select x).ToList();
                 return model;
             }
         }
@@ -63,7 +63,7 @@ namespace MT.Models
             {
                 using (var db = new MTSEntities())
                 {
-                    KartelaProduct temp = db.KartelaProducts.SingleOrDefault(x => x.Id == kp.Id);
+                    KartelaProduct temp = db.KartelaProduct.SingleOrDefault(x => x.Id == kp.Id);
                     temp.KartelaId = kp.KartelaId;
                     temp.ProductName = kp.ProductName;
                     temp.ProductCode = kp.ProductCode;
@@ -83,10 +83,10 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    var tempToRemove = db.KartelaProducts.SingleOrDefault(x => x.Id == Id);
+                    var tempToRemove = db.KartelaProduct.SingleOrDefault(x => x.Id == Id);
                     if (tempToRemove!=null)
                     {
-                        db.KartelaProducts.Remove(tempToRemove);
+                        db.KartelaProduct.Remove(tempToRemove);
                         db.SaveChanges();
                         return 1;
                     }
@@ -106,7 +106,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var kartelaForProduct = (from x in db.KartelaProducts where x.KartelaId == KartelaId select x).ToList();
+                var kartelaForProduct = (from x in db.KartelaProduct where x.KartelaId == KartelaId select x).ToList();
                 return kartelaForProduct;
             }
         }

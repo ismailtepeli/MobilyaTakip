@@ -18,7 +18,7 @@ namespace MT.Models
                     {
                         KartelaName = kartela.KartelaName
                     };
-                    db.Kartelas.Add(item);
+                    db.Kartela.Add(item);
                     db.SaveChanges();
                     return 1;
                 }
@@ -32,7 +32,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var kartela = (from x in db.Kartelas select x).ToList();
+                var kartela = (from x in db.Kartela select x).ToList();
                 return kartela;
             }
         }
@@ -40,7 +40,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var kartela = (from x in db.Kartelas where x.Id == Id select x).ToList();
+                var kartela = (from x in db.Kartela where x.Id == Id select x).ToList();
                 return kartela;
             }
         }
@@ -51,7 +51,7 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    var item = db.Kartelas.SingleOrDefault(x => x.Id == kartela.Id);
+                    var item = db.Kartela.SingleOrDefault(x => x.Id == kartela.Id);
                     item.KartelaName = kartela.KartelaName;
                     db.SaveChanges();
                     return 1;
@@ -69,10 +69,10 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    var item = db.Kartelas.SingleOrDefault(x => x.Id == Id);
+                    var item = db.Kartela.SingleOrDefault(x => x.Id == Id);
                     if (item!=null)
                     {
-                        db.Kartelas.Remove(item);
+                        db.Kartela.Remove(item);
                         db.SaveChanges();
                         return 1;
                     }

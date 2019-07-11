@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MT.Models.Types
+namespace MT
 {
     using System;
     using System.Data.Entity;
@@ -25,13 +25,12 @@ namespace MT.Models.Types
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<tblModel> tblModels { get; set; }
-        public virtual DbSet<Kartela> Kartelas { get; set; }
-        public virtual DbSet<KartelaProduct> KartelaProducts { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Kartela> Kartela { get; set; }
+        public virtual DbSet<KartelaProduct> KartelaProduct { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<tblModel> tblModel { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

@@ -38,7 +38,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"><label id="CustomerName"></label> Adlı Müşterinin Sipariş Detay</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="reloadPage();">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -168,7 +168,14 @@
                         <td>Açıklama 4</td>
                         <td> <label id="Aciklama4"></label></td>
                     </tr>
-
+                    <tr>
+                        <td>Kapora Tipi</td>
+                        <td><label id="KapType"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Ödeme Tipi</td>
+                        <td><label id="PaymentType"></label></td>
+                    </tr>
                     <tr>
                         <td>Kapora Fiyat</td>
                         <td><label id="KapFiyat"></label> </td>
@@ -406,7 +413,7 @@
 </div>
 <script type="text/javascript">
         $(document).ready(function () {
-            
+            OnlyNumber();
             GetCustomerForOrderPageSelectList();
             FirstLoginPageOrderList();
 

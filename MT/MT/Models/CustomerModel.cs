@@ -22,7 +22,7 @@ namespace MT.Models
                         Phone1=customer.Phone1,
                         Phone2=customer.Phone2
                     };
-                    db.Customers.Add(item);
+                    db.Customer.Add(item);
                     db.SaveChanges();
                     return 1;
                 }
@@ -37,7 +37,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var customers = (from x in db.Customers select x).ToList();
+                var customers = (from x in db.Customer select x).ToList();
                 return customers;
             }
         }

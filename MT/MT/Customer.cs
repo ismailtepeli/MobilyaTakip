@@ -7,16 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MT.Models.Types
+namespace MT
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class KartelaProduct
+    public partial class Customer
     {
         public int Id { get; set; }
-        public Nullable<int> KartelaId { get; set; }
-        public string ProductName { get; set; }
-        public string ProductCode { get; set; }
+        public string NameSurname { get; set; }
+        public string Email { get; set; }
+        public string Phone1 { get; set; }
+        public string Phone2 { get; set; }
+        public string Adress { get; set; }
     }
 }

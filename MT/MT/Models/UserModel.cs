@@ -20,7 +20,7 @@ namespace MT.Models
                         NameSurname = user.NameSurname,
                         Password = user.Password
                     };
-                    db.Users.Add(temp);
+                    db.User.Add(temp);
                     db.SaveChanges();
                     return 1;
                 }
@@ -36,7 +36,7 @@ namespace MT.Models
             using (var db = new MTSEntities())
             {
                 
-                var users = (from x in db.Users select x).ToList();
+                var users = (from x in db.User select x).ToList();
                 return users;
             }
         }
@@ -45,7 +45,7 @@ namespace MT.Models
         {
             using (var db = new MTSEntities())
             {
-                var users = (from x in db.Users where x.Id == Id select x).ToList();
+                var users = (from x in db.User where x.Id == Id select x).ToList();
                 return users;
             }
         }
@@ -56,7 +56,7 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    User temp = db.Users.SingleOrDefault(x => x.Id == user.Id);
+                    User temp = db.User.SingleOrDefault(x => x.Id == user.Id);
                     temp.NameSurname = user.NameSurname;
                     temp.Password = user.Password;
                     temp.Email = user.Email;
@@ -76,10 +76,10 @@ namespace MT.Models
             {
                 using (var db=new MTSEntities())
                 {
-                    var tempToRemove = db.Users.SingleOrDefault(x => x.Id == Id);
+                    var tempToRemove = db.User.SingleOrDefault(x => x.Id == Id);
                     if (tempToRemove!=null)
                     {
-                        db.Users.Remove(tempToRemove);
+                        db.User.Remove(tempToRemove);
                         db.SaveChanges();
                         return 1;
                     }
@@ -99,7 +99,7 @@ namespace MT.Models
         {
             using (var db=new MTSEntities())
             {
-                var getuser = (from x in db.Users
+                var getuser = (from x in db.User
                                where x.Email == user.Email && x.Password == user.Password
                                select x).ToList();
                 return getuser;

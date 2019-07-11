@@ -18,7 +18,7 @@
                     <td>Müşteri Seç</td>
                     <td>
                         <div class="col-lg-10">
-                            <select class="form-control selectpicker" style="max-width:640px !important;margin-right:15px;" data-live-search="true" id="SelectCustomer"></select>
+                            <select class="form-control " style="max-width:640px !important;margin-right:15px;" data-live-search="true" id="SelectCustomer"></select>
                         </div>
                         <div class="col-lg-2">
                             <a href="javascript:void(0);" class="btn  btn-primary " onclick="AddCustomerPanelToggle();">Müşteri Ekle</a>
@@ -67,7 +67,7 @@
                 </tr>
                 <tr>
                     <td>Sipariş Tarihi</td>
-                    <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy"  id="OrderDate"/></td>
+                    <td><input type="datetime" class="form-control" placeholder="dd/mm/yyyy" id="OrderDate" /></td>
                 </tr>
                 <tr>
                     <td>Teslim Tarihi</td>
@@ -112,7 +112,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button type="button" onclick="Urun2Ac();" class="btn btn-block btn-sm btn-primary">Ekstra Ürün Ekle</button>
+                            <button type="button" onclick="Urun2Ac();" class="btn btn-block btn-sm btn-primary" id="Btn1">Ekstra Ürün Ekle</button>
                         </td>
                     </tr>
                 </tbody>
@@ -155,11 +155,11 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button type="button" onclick="Urun3Ac();" class="btn btn-block btn-sm btn-primary">Ekstra Ürün Ekle</button>
+                            <button type="button" onclick="Urun3Ac();" class="btn btn-block btn-sm btn-primary" id="Btn2">Ekstra Ürün Ekle</button>
                         </td>
                     </tr>
                 </tbody>
-                
+
                 <tbody id="Urun3">
                     <tr>
                         <td>Ürün 3</td>
@@ -199,7 +199,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button type="button" onclick="Urun4Ac();" class="btn btn-block btn-sm btn-primary">Ekstra Ürün Ekle</button>
+                            <button type="button" onclick="Urun4Ac();" class="btn btn-block btn-sm btn-primary" id="Btn3">Ekstra Ürün Ekle</button>
                         </td>
                     </tr>
                 </tbody>
@@ -241,10 +241,10 @@
                         </td>
                     </tr>
                 </tbody>
-                 
+
                 <tr>
                     <td>Ürün Tutarı</td>
-                    <td><input class="form-control" type="text" placeholder="0 TL" id="Price"/> </td>
+                    <td><input class="form-control" type="number" placeholder="0 TL" id="Price" /> </td>
                 </tr>
                 <tr>
                     <td>Toplam Fiyat</td>
@@ -253,8 +253,8 @@
                 <tr>
                     <td>Kapora</td>
                     <td>
-                        <input type="text" class="form-control" placeholder="0 TL" id="Kapora" />
-                        Nakit <input type="checkbox" class="form-check" value="Nakit" id="KaporaNakit"/>&nbsp;
+                        <input type="number" class="form-control" placeholder="0 TL" id="Kapora" />
+                        Nakit <input type="checkbox" class="form-check" value="Nakit" id="KaporaNakit" />&nbsp;
                         Kredi Kartı <input type="checkbox" class="form-check" value="Kredi Kartı" id="KaporaKredi" />&nbsp;
 
                     </td>
@@ -269,7 +269,7 @@
                         Nakit <input type="checkbox" class="form-check" value="Nakit" id="PaymentNakit" />&nbsp;
                         Kredi Kartı <input type="checkbox" class="form-check" value="Kredi Kartı" id="PaymentKredi" />&nbsp;
                         Senet <input type="checkbox" class="form-check" value="Senet" id="PaymentSenet" />
-                        Çek <input type="checkbox" class="form-check" value="Çek" id="PaymentCek"/>
+                        Çek <input type="checkbox" class="form-check" value="Çek" id="PaymentCek" />
                     </td>
                 </tr>
                 <tr>
@@ -282,15 +282,18 @@
 </div>
 
 <script type="text/javascript">
-   
+
     function Urun2Ac() {
         $("#Urun2").show();
+        $("#Btn1").hide();
     }
     function Urun3Ac() {
         $("#Urun3").show();
+        $("#Btn2").hide();
     }
     function Urun4Ac() {
         $("#Urun4").show();
+        $("#Btn3").hide();
     }
     $(document).ready(function () {
         $("#Urun2").hide();
@@ -298,14 +301,15 @@
         $("#Urun4").hide();
         $("#AddCustomerPanel").hide();
         GetCustomerForOrderPageSelectList();
-       
+
         $("#OrderDate").datepicker({
-          
+
             autoclose: true,
             todayHighlight: true,
             todayHighlight: true,
             dateFormat: 'dd/mm/yyyy',
-            language:'tr'
+            language: 'en',
+            minDate: 0
         }).datepicker('update', new Date());
 
         $("#LastOrderDate").datepicker({
@@ -313,7 +317,8 @@
             dateFormat: 'dd/mm/yyyy',
             autoclose: true,
             todayHighlight: true,
-            language:'tr'
+            language: 'en',
+            minDate: 0
         }).datepicker();
 
         ProductListForOrderPageSelectList();
@@ -333,6 +338,7 @@
             $("#lblKapora").text(toplam - kap);
         })
     })
+
     function AddCustomerPanelToggle() {
 
         $("#AddCustomerPanel").toggle();

@@ -178,8 +178,17 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Kartela.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KartelaProduct.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\KartelaModel.cs" />
@@ -188,49 +197,37 @@
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Types\CatalogProduct.cs" />
-    <Compile Include="Models\Types\Customer.cs">
-      <DependentUpon>MTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Types\Kartela.cs">
-      <DependentUpon>MTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Types\KartelaProduct.cs">
-      <DependentUpon>MTS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Types\ModelProduct.cs" />
-    <Compile Include="Models\Types\MTS.Context.cs">
+    <Compile Include="Models\Types\OrderCustomerProduct.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="MTS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MTS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Types\MTS.cs">
+    <Compile Include="MTS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Types\MTS.Designer.cs">
+    <Compile Include="MTS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MTS.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Types\Order.cs">
+    <Compile Include="Order.cs">
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Types\OrderCustomerProduct.cs" />
-    <Compile Include="Models\Types\Product.cs">
+    <Compile Include="Product.cs">
       <DependentUpon>MTS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Types\sysdiagram.cs">
-      <DependentUpon>MTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Types\tblModel.cs">
-      <DependentUpon>MTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Types\User.cs">
-      <DependentUpon>MTS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblModel.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>MTS.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -318,12 +315,12 @@
     <Content Include="img\widgets\2.png" />
     <Content Include="img\widgets\4.png" />
     <Content Include="img\widgets\6.png" />
-    <Content Include="Models\Types\MTS.Context.tt">
+    <Content Include="MTS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MTS.edmx</DependentUpon>
       <LastGenOutput>MTS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Types\MTS.tt">
+    <Content Include="MTS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MTS.edmx</DependentUpon>
       <LastGenOutput>MTS.cs</LastGenOutput>
@@ -370,11 +367,11 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper.min.js.map" />
-    <EntityDeploy Include="Models\Types\MTS.edmx">
+    <EntityDeploy Include="MTS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MTS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Types\MTS.edmx.diagram">
+    <Content Include="MTS.edmx.diagram">
       <DependentUpon>MTS.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\MTSV1.0.pubxml" />
